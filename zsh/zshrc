@@ -83,27 +83,8 @@ source $ZSH/oh-my-zsh.sh
 #  arch -x86_64 $@
 #}
 
-
+# Variables
 export PATH="$HOME/.dotfiles/bin:/opt/homebrew/bin:$PATH"
-
-
-
-alias zshconfig="vim ~/.zshrc && source ~/.zshrc"
-alias zprofile="vim ~/.zprofile && source ~/.zshrc"
-alias zconfig="zconfig"
-alias zconf="zconfig"
-alias zconf="zconfig"
-alias zconf="zconfig"
-alias zshprofile="zprofile"
-alias zshprof="zprofile"
-alias zprof="zprofile"
-
-alias pcp="pbcopy"
-alias kkk="pbcopy"
-alias op="cd $OLDPWD"
-alias fu="fuck"
-
-alias tinker="vim -c 'set syntax=php'"
 export STINKER="$HOME/Repos/StinkerPhar/index.php"
 
 source $DOT_ZSH/aliases.zsh
