@@ -31,3 +31,7 @@ alias lpath='echo $PATH | tr ":" "\n"' # list the PATH separated by new lines
 
 eval $(thefuck --alias)
 alias clr="clear"
+
+# Git
+alias gcb='git copy-branch-name'
+
