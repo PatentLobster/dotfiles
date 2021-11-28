@@ -1,1 +1,1 @@
-$HOME/.dotfiles/tmux/tmux.conf.local ~/.tmux.conf.local
+$HOME/.dotfiles/tmux/tmux.conf.local $HOME/.tmux.conf.local

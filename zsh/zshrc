@@ -103,7 +103,8 @@ alias op="cd $OLDPWD"
 alias fu="fuck"
 
 alias tinker="vim -c 'set syntax=php'"
-export STINKER="/Users/itzik/Repos/StinkerPhar/index.php"
+export STINKER="$HOME/Repos/StinkerPhar/index.php"
 
 source $DOT_ZSH/aliases.zsh
 source $DOT_ZSH/functions.zsh
+source $HOME/.zprofile
