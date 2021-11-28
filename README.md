@@ -4,7 +4,7 @@
 
 #TBD
 
-### requirments:
+### Requirements:
 
  - Brew:
 ```bash
