@@ -8,7 +8,9 @@ alias vimconfig="vim ~/.dotfiles/vim/vimrc"
 alias vimconf="vimconfig"
 alias vconfig="vimconfig"
 alias vconf="vimconfig"
+
 alias y="yank"
+alias tinker="vim -c 'set syntax=php'"
 
 # reload zsh config
 alias reload!='RELOAD=1 source ~/.zshrc'
@@ -34,4 +36,3 @@ alias clr="clear"
 
 # Git
 alias gcb='git copy-branch-name'
-
