@@ -84,7 +84,8 @@ source $ZSH/oh-my-zsh.sh
 #}
 
 
-# ALIASES
+export PATH="$HOME/.dotfiles/bin:/opt/homebrew/bin:$PATH"
+
 
 
 alias zshconfig="vim ~/.zshrc && source ~/.zshrc"
