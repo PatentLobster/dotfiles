@@ -16,4 +16,4 @@ else
 	fail "Failed to install brew packages"
 fi
 
-$DDOTFILES/tools/create_symlinks.sh
+$DOTFILES/tools/create_symlinks.sh
