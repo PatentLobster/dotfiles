@@ -1,13 +1,6 @@
-# My dotfiles
+# dotfiles
 
-### Installation
+> This Lobster loves his shell.
 
-#TBD
 
-### Requirements:
-
- - Brew:
-```bash
-$:	brew install fzf thefuck bpytop
-```
-
+![Doge Meme](http://i.imgur.com/5N3IEq2.jpg)
