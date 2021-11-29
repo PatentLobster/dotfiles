@@ -1,0 +1,41 @@
+#!/bin/sh
+#
+# dotty
+#
+# 'dotty' handles dotfiles common tasks
+#
+
+source $DOTFILES/tools/pretty_print.sh
+
+displayUsageAndExit() {
+	echo "dotty -- dotfiles managment"
+	echo ""
+	echo "Usage: dotty [options]"
+	echo ""
+	echo "Options:"
+	echo ""
+	echo " --e, --edit		Open dotfiles directory for editing"
+	echo " --h, --help		Show this help message and exit"
+	exit
+}
+
+while test $# -gt 0; do
+	case "$1" in
+		"-h"|"--help")
+			displayUsageAndExit
+			;;
+		"-e"|"--edit")
+			exec "$EDITOR" "$dotfilesDirectory"
+			exit
+			;;
+		*)
+			echo "Invalid option: $1"
+			displayUsageAndExit
+			;;
+	esac
+	shift
+done
+
+info "Updating submodules"
+$DOTFILES/tools/update.sh
+
