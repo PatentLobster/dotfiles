@@ -1,7 +1,6 @@
-
-" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " load plugins from vundle
 filetype off
@@ -183,3 +182,4 @@ function! s:Art()
 endfunction
 command! -complete=shellcmd  Tinker call s:Art()
 nnoremap <C-r> :Tinker<CR>
+map <leader>m :Tinker<cr>

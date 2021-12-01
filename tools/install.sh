@@ -3,6 +3,8 @@
 export DOTFILES="$HOME/.dotfiles"
 source $DOTFILES/tools/pretty_print.sh
 
+lobster
+
 info "Installing brew"
 if $DOTFILES/brew/install.sh; then
 	success "Brew installed"
@@ -16,4 +18,8 @@ else
 	fail "Failed to install brew packages"
 fi
 
-$DOTFILES/tools/create_symlinks.sh
+if $DOTFILES/tools/create_symlinks.sh; then
+	success "Symlinks created"
+else
+	fail "Failed to create symlinks."
+fi
