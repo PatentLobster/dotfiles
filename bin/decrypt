@@ -1,0 +1,18 @@
+#!/bin/bash
+
+salt=$HOME/.secrets/salt
+if [ "$1" != "" ]; then
+	file="$(pwd)/$1"
+	if test -f $salt; then
+		openssl aes-256-cbc -d  -salt -in $file -out ${file%%???} -pass file:"$salt"
+		else
+			echo "$salt doesn't exist"
+			if [ ! -f $HOME/.secrets ]; then
+				mkdir $HOME/.secrets
+			fi
+			echo "Enter you salty password"
+			read pass
+			echo $pass >> $salt
+			openssl aes-256-cbc -d  -salt -in $file -out ${file%%???} -pass file:"$salt"
+	fi
+fi

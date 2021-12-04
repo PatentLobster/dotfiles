@@ -1,0 +1,35 @@
+#!/bin/bash
+
+displayUsageAndExit() {
+	echo "encrypt 🔐"
+	echo "uses ~/.secrets/salt to AES encrypt files"
+	echo "Usage: encrypt <filename>"
+	echo "Output: filename.enc"
+	exit
+}
+
+salt=$HOME/.secrets/salt
+if [ "$1" != "" ]; then
+	file="$(pwd)/$1"
+
+	if [ "$2" != "" ]; then
+		output=$2
+	else
+		$output=$2.enc
+	fi
+
+	if test -f $salt; then
+			openssl enc -aes-256-cbc -salt -in $file -out $output	-pass file:"$salt"
+		else
+			echo "$salt doesn't exist"
+			if [ ! -f $HOME/.secrets ]; then
+				mkdir $HOME/.secrets
+			fi
+			echo "Enter you salty password"
+			read pass
+			echo $pass >> $salt
+			openssl enc -aes-256-cbc -salt -in $file -out $output	-pass file:"$salt"
+	fi
+else
+	displayUsageAndExit
+fi
