@@ -146,7 +146,6 @@ let g:ctrlp_working_path_mode = 2
 
 com! J %!python -m json.tool
 com! M %!jq -c .
-com! K r!jq -c .
 
 command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
 function! s:RunShellCommand(cmdline)
@@ -175,8 +174,7 @@ function! s:Art()
 	let b64 = system('base64', bufnr())
 	botright new
 	setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap	
-	"echo system("php /Users/itzik/Repos/StinkerPhar/index.php /Users/itzik/Repos/lplayground tinker --tinker_code=".b64)
-	execute "$read !php $STINKER /Users/itzik/Repos/lplayground tinker --tinker_code=".b64
+	execute "$read !php $STINKER $STINKER_PROJ tinker --tinker_code=".b64
 	setlocal nomodifiable
 	1
 endfunction
