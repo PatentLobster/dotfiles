@@ -1,1 +1,1 @@
-bat jq fzf thefuck bpytop
+go pv bat jq fzf thefuck bpytop
