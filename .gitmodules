@@ -16,3 +16,6 @@
 [submodule "vim/plugins/Vundle.vim"]
 	path = vim/plugins/Vundle.vim
 	url = https://github.com/gmarik/Vundle.vim.git
+[submodule "zsh/custom/plugins/git-trim"]
+	path = zsh/custom/plugins/git-trim
+	url = https://github.com/jasonmccreary/git-trim.git
