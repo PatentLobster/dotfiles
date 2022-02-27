@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ "$*" == "" ]; then
+	pwd | pbcopy
+	pbpaste
+else
+	echo $(pwd)/$* | pbcopy
+	pbpaste
+fi
+
