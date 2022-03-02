@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 #
 # dotty
 #
@@ -14,8 +14,9 @@ displayUsageAndExit() {
 	echo ""
 	echo "Options:"
 	echo ""
-	echo " --e, --edit		Open dotfiles directory for editing"
-	echo " --h, --help		Show this help message and exit"
+	echo " -e, --edit		Open dotfiles directory for editing"
+	echo " -o, --open		Open dotfiles directory in shell"
+	echo " -h, --help		Show this help message and exit"
 	exit
 }
 
@@ -23,6 +24,10 @@ while test $# -gt 0; do
 	case "$1" in
 		"-h"|"--help")
 			displayUsageAndExit
+			;;
+		"-o"|"--open")
+			open "$DOTFILES"
+			exit
 			;;
 		"-e"|"--edit")
 			exec "$EDITOR" "$DOTFILES"
