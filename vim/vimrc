@@ -167,17 +167,4 @@ function! s:RunShellCommand(cmdline)
   1
 endfunction
 
-command! -complete=file -nargs=* Art call s:RunShellCommand(%!'base64 -e '.<q-args>)
-
-function! s:Art()
-	set syntax=php
-	let b64 = system('base64', bufnr())
-	botright new
-	setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap	
-	execute "$read !php $STINKER $STINKER_PROJ tinker --tinker_code=".b64
-	setlocal nomodifiable
-	1
-endfunction
-command! -complete=shellcmd  Tinker call s:Art()
-nnoremap <C-r> :Tinker<CR>
-map <leader>m :Tinker<cr>
+source ~/.vprofile
