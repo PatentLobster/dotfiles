@@ -12,14 +12,37 @@ else
 	fail "Failed to install brew"
 fi
 info "Installing brew packages"
-if brew install $(cat $DOTFILES/brew/packages); then
-	success "Brew packages installed"
-else
-	fail "Failed to install brew packages"
-fi
 
 if $DOTFILES/tools/create_symlinks.sh; then
 	success "Symlinks created"
 else
 	fail "Failed to create symlinks."
 fi
+
+if brew install $(cat $DOTFILES/brew/packages); then
+	success "Brew packages installed"
+else
+	fail "Failed to install brew packages"
+fi
+
+if test -f "$HOME/.vprof"; then
+	touch "$HOME/.vprof"
+fi
+
+
+info "installing git plugins"
+vim +PlugInstall +qall > /dev/null
+
+success "Installation complete"
+info "Make sure to create ~/.zprofile and ~/.vprofile if you don't have them"
+
+if test -f "$HOME/.zprofile"; then
+	touch "$HOME/.zprofile"
+fi
+
+
+info "installing git plugins"
+vim +PlugInstall +qall > /dev/null
+
+success "Installation complete"
+info "Make sure to create ~/.zprofile and ~/.vprofile if you don't have them"
