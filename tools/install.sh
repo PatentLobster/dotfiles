@@ -29,17 +29,9 @@ if test -f "$HOME/.vprof"; then
 	touch "$HOME/.vprof"
 fi
 
-
-info "installing git plugins"
-vim +PlugInstall +qall > /dev/null
-
-success "Installation complete"
-info "Make sure to create ~/.zprofile and ~/.vprofile if you don't have them"
-
 if test -f "$HOME/.zprofile"; then
 	touch "$HOME/.zprofile"
 fi
-
 
 info "installing git plugins"
 vim +PlugInstall +qall > /dev/null
