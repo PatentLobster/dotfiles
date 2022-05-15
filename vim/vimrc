@@ -30,6 +30,8 @@ Plugin 'jelera/vim-javascript-syntax'
 " PHP plugins
 Plugin 'sahibalejandro/vim-php'
 
+Plugin 'fatih/vim-go'
+
 call vundle#end()
 filetype plugin indent on
 
