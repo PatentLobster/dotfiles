@@ -19,7 +19,7 @@ else
 	fail "Failed to create symlinks."
 fi
 
-if brew install $(cat $DOTFILES/brew/packages); then
+if brew bundle --file=$DOTFILES/brew/Brwfile; then
 	success "Brew packages installed"
 else
 	fail "Failed to install brew packages"

@@ -6,4 +6,4 @@ lobster
 cd $DOTFILES
 git  pull --rebase --progress 
 git  submodule update --progress --remote --recursive 
-
+brew bundle --file=$DOTFILES/brew/Brewfile

@@ -1,0 +1,44 @@
+brew tmux 
+brew go 
+brew pv 
+brew bat 
+brew jq
+brwe fzf 
+brew thefuck 
+brew btop
+brew node
+brew yarn
+brew tldr
+brew zsh-syntax-highlighting
+brew grep
+
+# DE
+cask 'spectacle'
+cask 'alfred'
+
+cask 'vlc'
+
+cask 'github'
+cask 'transmit'
+cask 'gpg-suite'
+
+# Database gui
+cask 'sequel-ace'
+cask 'beekeeper-studio'
+cask 'tableplus'
+
+
+# Quicklook
+cask 'qlmarkdown'
+cask 'quicklook-json'
+
+
+# Fonts
+cask 'font-lato'
+cask 'font-open-sans'
+cask 'font-roboto'
+cask 'font-source-code-pro-for-powerline'
+cask 'font-source-code-pro'
+cask 'font-source-sans-pro'
+cask 'font-source-serif-pro'
+cask 'font-hack-nerd-font'
