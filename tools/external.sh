@@ -2,8 +2,6 @@
 
 source pretty_print.sh
 
-lobster
-
 info "Getting leet packages"
 
 if [ ! -d "$HOME/.fzf" ]; then

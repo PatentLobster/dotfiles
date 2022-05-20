@@ -8,7 +8,7 @@
 source $DOTFILES/tools/pretty_print.sh
 
 displayUsageAndExit() {
-	echo "dotty -- dotfiles managment"
+	lolcat "dotty -- dotfiles managment"
 	echo ""
 	echo "Usage: dotty [options]"
 	echo ""
@@ -16,6 +16,7 @@ displayUsageAndExit() {
 	echo ""
 	echo " -e, --edit		Open dotfiles directory for editing"
 	echo " -o, --open		Open dotfiles directory in shell"
+	echo " -f, --finder		Open dotfiles directory in finder"
 	echo " -h, --help		Show this help message and exit"
 	exit
 }
@@ -25,9 +26,13 @@ while test $# -gt 0; do
 		"-h"|"--help")
 			displayUsageAndExit
 			;;
-		"-o"|"--open")
+		"-f"|"--finder")
 			open "$DOTFILES"
 			exit
+			;;
+		"-o"|"--open")
+			cd "$DOTFILES"
+			$SHELL
 			;;
 		"-e"|"--edit")
 			exec "$EDITOR" "$DOTFILES"

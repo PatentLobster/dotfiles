@@ -21,7 +21,12 @@ fail () {
 }
 
 lobster () {
-	cat << "EOF"
+	if command -v lolcat &> /dev/null; then
+		lobster_printer="lolcat"
+	else
+		lobster_printer="cat"
+	fi
+	eval $lobster_printer << "EOF"
                              ,.---._
                    ,,,,     /       `,
                     \\\\   /    '\_  ;

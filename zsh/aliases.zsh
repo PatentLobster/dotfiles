@@ -36,3 +36,7 @@ alias clr="clear"
 
 # Git
 alias gcb='git copy-branch-name'
+
+# Brew
+alias bi="brew install"
+alias bro="lolcat $DOTFILES/brew/Brewfile" # When you forget the name of the damn command

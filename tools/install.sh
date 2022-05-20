@@ -19,7 +19,7 @@ else
 	fail "Failed to create symlinks."
 fi
 
-if brew bundle --file=$DOTFILES/brew/Brwfile; then
+if brew bundle --file=$DOTFILES/brew/Brewfile; then
 	success "Brew packages installed"
 else
 	fail "Failed to install brew packages"
@@ -37,4 +37,5 @@ info "installing git plugins"
 vim +PlugInstall +qall > /dev/null
 
 success "Installation complete"
-info "Make sure to create ~/.zprofile and ~/.vprofile if you don't have them"
+
+lobster
