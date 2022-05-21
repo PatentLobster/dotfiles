@@ -4,6 +4,7 @@ tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/bundle'
 
+# 🍺
 brew 'tmux'
 brew 'go'
 brew 'pv'
@@ -25,7 +26,7 @@ brew 'coreutils' # Those that come with macOS are outdated
 brew 'ffmpeg'
 brew 'gnupg'
 brew 'git'
-
+brew 'wget'
 
 # Desktop env
 cask 'spectacle'
@@ -33,8 +34,10 @@ cask 'alfred'
 
 cask 'vlc'
 
+# Dev tools
 cask 'github'
 cask 'transmit'
+cask 'sublime-text'
 cask 'gpg-suite'
 
 # Database gui
@@ -46,7 +49,12 @@ cask 'tableplus'
 # Quicklook
 cask 'qlmarkdown'
 cask 'quicklook-json'
-
+cask 'qlstephen'
+cask 'quicklook-json'
+cask 'suspicious-package'
+cask 'apparency'
+cask 'qlcolorcode'
+cask 'qlimagesize'
 
 # Fonts
 cask 'font-lato'

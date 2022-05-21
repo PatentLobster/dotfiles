@@ -33,3 +33,4 @@ git clone https://github.com/PatentLobster/dotfiles ~/.dotfiles --recurse-submod
 - [driesvints/dotfiles](https://github.com/driesvints/dotfiles)
 - [holman/dotfiles](https://github.com/holman/dotfiles)
 - [nicknisi/dotfiles](https://github.com/nicknisi/dotfiles)
+- [sindresorhus/quick-look-plugins](https://github.com/sindresorhus/quick-look-plugins)
