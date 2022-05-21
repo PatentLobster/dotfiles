@@ -1,10 +1,12 @@
 # dotfiles
 
-> This Lobster loves his shell.
+ 
+# Installation
+```bash
+git clone https://github.com/PatentLobster/dotfiles ~/.dotfiles --recurse-submodules --remote-submodules && ~/.dotfiles/tools/install.sh
+```
 
-
-![Doge Meme](http://i.imgur.com/5N3IEq2.jpg)
-
+---
 ```
                              ,.---._
                    ,,,,     /       `,
@@ -18,9 +20,16 @@
                      |||| \/\  ,-'/,
                     ////   \ `` _/ ;
                    ''''     \  `  .'
+                             `---'
 ```
+> This Lobster loves his shell.
 
-# Install
-```bash
-git clone https://github.com/PatentLobster/dotfiles ~/.dotfiles --recurse-submodules --remote-submodules && ~/.dotfiles/tools/install.sh
-```
+![Doge Meme](http://i.imgur.com/5N3IEq2.jpg)
+
+
+
+# Credits
+
+- [driesvints/dotfiles](https://github.com/driesvints/dotfiles)
+- [holman/dotfiles](https://github.com/holman/dotfiles)
+- [nicknisi/dotfiles](https://github.com/nicknisi/dotfiles)
