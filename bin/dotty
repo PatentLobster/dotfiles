@@ -10,7 +10,7 @@ source $DOTFILES/tools/pretty_print.sh
 lobster
 
 displayUsageAndExit() {
-	lolcat "dotty -- dotfiles managment"
+	echo "dotty -- dotfiles managment" | lolcat 
 	echo ""
 	echo "Usage: dotty [options]"
 	echo ""
