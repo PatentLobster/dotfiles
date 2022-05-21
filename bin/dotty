@@ -11,9 +11,8 @@ lobster
 
 displayUsageAndExit() {
 	echo "dotty -- dotfiles managment" | lolcat 
-	echo ""
 	echo "Usage: dotty [options]"
-	echo ""
+	echo "With no options dotty will update the dotfiles." | lolcat
 	echo "Options:"
 	echo ""
 	echo " -e, --edit		Open dotfiles directory for editing"
