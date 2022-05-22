@@ -92,3 +92,5 @@ export STINKER="$HOME/Repos/StinkerPhar/index.php"
 source $DOT_ZSH/aliases.zsh
 source $DOT_ZSH/functions.zsh
 source $HOME/.zprofile
+eval "$(zoxide init zsh)"
+alias cd="z"
