@@ -40,3 +40,10 @@ alias gcb='git copy-branch-name'
 # Brew
 alias bi="brew install"
 alias bro="lolcat $DOTFILES/brew/Brewfile" # When you forget the name of the damn command
+
+# Wicked
+alias ma="tldr"
+alias ls="lsd"
+alias la="lsd -L" 
+alias ll="lsd -h -l"
+
