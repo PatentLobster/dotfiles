@@ -28,6 +28,7 @@ brew 'gnupg'
 brew 'git'
 brew 'wget'
 brew 'zoxide'
+brew 'lsd'
 
 # Desktop env
 cask 'spectacle'
