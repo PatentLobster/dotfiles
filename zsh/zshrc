@@ -51,7 +51,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 
-plugins=(macos git git-trim vi-mode zsh-autosuggestions zsh-syntax-highlighting fzf-tab zsh-navigation-tools urltools systemadmin extract golang)
+plugins=(macos git git-trim vi-mode zsh-autosuggestions zsh-syntax-highlighting fzf-tab zsh-navigation-tools urltools systemadmin extract golang fancy-ctrl-z)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
