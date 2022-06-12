@@ -44,6 +44,6 @@ alias bro="lolcat $DOTFILES/brew/Brewfile" # When you forget the name of the dam
 # Wicked
 alias ma="tldr"
 alias ls="lsd"
-alias la="lsd -L" 
-alias ll="lsd -h -l"
-
+alias la="lsd -La" 
+alias ll="lsd -h -la"
+alias fsql="fselect"

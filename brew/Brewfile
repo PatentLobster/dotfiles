@@ -29,6 +29,7 @@ brew 'git'
 brew 'wget'
 brew 'zoxide'
 brew 'lsd'
+brew 'fselect'
 
 # Desktop env
 cask 'spectacle'
