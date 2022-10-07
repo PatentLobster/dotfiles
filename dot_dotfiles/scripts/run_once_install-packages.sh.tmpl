@@ -64,9 +64,13 @@ set -e
 {{   if eq .chezmoi.osRelease.id "debian" }}
 # Debian-specific code
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 sudo apt update
 sudo apt install wget curl tmux zsh zoxide python3-dev python3-pip python3-setuptools
+
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 brew install thefuck
 
 get_latest_release() {
@@ -92,7 +96,7 @@ sudo yum groupinstall 'Development Tools'
 sudo dnf install zsh zoxide lsd
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 brew install thefuck
 {{   end }}
 {{ end }}
