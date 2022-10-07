@@ -2,6 +2,7 @@
 {{ if eq .chezmoi.os "darwin" }}
 # macOS-specific code
 
+set +e
 brew bundle --no-lock --file=/dev/stdin <<EOF
 
 tap "homebrew/cask"
@@ -58,7 +59,7 @@ cask "font-source-sans-pro"
 cask "font-source-serif-pro"
 cask "font-hack-nerd-font"
 EOF
-
+set -e
 {{ else if eq .chezmoi.os "linux" }}
 {{   if eq .chezmoi.osRelease.id "debian" }}
 # Debian-specific code
