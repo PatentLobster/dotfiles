@@ -63,7 +63,10 @@ EOF
 {{   if eq .chezmoi.osRelease.id "debian" }}
 # Debian-specific code
 
-sudo apt install wget curl tmux zsh zoxide
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+sudo apt update
+sudo apt install wget curl tmux zsh zoxide python3-dev python3-pip python3-setuptools
+brew install thefuck
 
 get_latest_release() {
   curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
@@ -84,7 +87,8 @@ sudo dpkg -i /tmp/lsd.deb
 
 {{   else if eq .chezmoi.osRelease.id "fedora" }}
 # Fedora-specific code
-dnf install zsh zoxide lsd
+sudo dnf install zsh zoxide lsd
+brew install thefuck
 
 {{   end }}
 {{ end }}

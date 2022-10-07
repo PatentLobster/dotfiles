@@ -31,6 +31,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(macos git git-trim zsh-autosuggestions zsh-syntax-highlighting fzf-tab zsh-navigation-tools urltools systemadmin extract golang fancy-ctrl-z encode64 vi-mode artisan)
 {{ else if eq .chezmoi.os "linux" }}
 plugins=(git git-trim zsh-autosuggestions zsh-syntax-highlighting fzf-tab zsh-navigation-tools urltools systemadmin extract golang fancy-ctrl-z encode64 vi-mode artisan)
+export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 {{ end }}
 
 source $ZSH/oh-my-zsh.sh
