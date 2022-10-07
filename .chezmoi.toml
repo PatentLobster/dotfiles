@@ -1,2 +1,2 @@
 [diff]
-    exclude = ["scripts"]
+    exclude = ["dot_dotfiles/scripts"]
