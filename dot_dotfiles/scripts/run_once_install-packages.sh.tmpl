@@ -88,8 +88,11 @@ sudo dpkg -i /tmp/lsd.deb
 
 {{   else if eq .chezmoi.osRelease.id "fedora" }}
 # Fedora-specific code
+sudo yum groupinstall 'Development Tools'
 sudo dnf install zsh zoxide lsd
-brew install thefuck
 
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew install thefuck
 {{   end }}
 {{ end }}
