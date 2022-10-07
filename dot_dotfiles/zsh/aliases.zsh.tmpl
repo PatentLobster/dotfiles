@@ -4,7 +4,7 @@ alias zprof="zprofile"
 alias zconfig="zshconfig"
 alias zshconf="zshconfig"
 alias zconf="zshconfig"
-alias vimconfig="e $DOTFILES/vim/vimrc" 
+alias vimconfig="e $DOTFILES/vim/vimrc"
 alias vimconf="vimconfig"
 alias vconfig="vimconfig"
 alias vconf="vimconfig"
@@ -20,9 +20,6 @@ alias grep='grep --color=auto'
 alias df='df -h' # disk free, in Gigabytes, not bytes
 alias du='du -h -c' # calculate disk usage for a folder
 
-# Hide/show all desktop icons (useful when presenting)
-alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
@@ -34,6 +31,8 @@ alias lpath='echo $PATH | tr ":" "\n"' # list the PATH separated by new lines
 eval $(thefuck --alias)
 alias clr="clear"
 
+{{ if (eq .chezmoi.os "darwin") }}
+
 # Git
 alias gcb='git copy-branch-name'
 
@@ -44,6 +43,12 @@ alias bro="lolcat $DOTFILES/brew/Brewfile" # When you forget the name of the dam
 # Wicked
 alias ma="tldr"
 alias ls="lsd"
-alias la="lsd -La" 
+alias la="lsd -La"
 alias ll="lsd -h -la"
 alias fsql="fselect"
+
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+{{ end }}

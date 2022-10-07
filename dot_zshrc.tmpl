@@ -1,0 +1,47 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export DOT_ZSH="$HOME/.dotfiles/zsh"
+export ZSH="$DOT_ZSH/ohmyzsh"
+ZSH_CUSTOM="$DOT_ZSH/custom"
+export DOTFILES="$HOME/.dotfiles"
+export EDITOR="vim"
+
+ZSH_THEME="robbyrussell"
+
+DISABLE_AUTO_UPDATE="true"
+DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+
+{{ if eq .chezmoi.os "darwin" }}
+plugins=(macos git git-trim zsh-autosuggestions zsh-syntax-highlighting fzf-tab zsh-navigation-tools urltools systemadmin extract golang fancy-ctrl-z encode64 vi-mode artisan)
+{{ else if eq .chezmoi.os "linux" }}
+plugins=(git git-trim zsh-autosuggestions zsh-syntax-highlighting fzf-tab zsh-navigation-tools urltools systemadmin extract golang fancy-ctrl-z encode64 vi-mode artisan)
+{{ end }}
+
+source $ZSH/oh-my-zsh.sh
+
+# Variables
+export PATH=/opt/homebrew/bin:$DOTFILES/bin:$PATH
+export STINKER="$HOME/Repos/StinkerPhar/index.php"
+
+source $DOT_ZSH/aliases.zsh
+source $DOT_ZSH/functions.zsh
+source $HOME/.zprofile
+
+eval "$(zoxide init zsh)"
+alias cd="z"
