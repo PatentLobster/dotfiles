@@ -24,20 +24,7 @@ lobster () {
 	else
 		lobster_printer="cat"
 	fi
-	eval $lobster_printer <<EOF
-                             ,.---._
-                   ,,,,     /       `,
-                    \\\\   /    '\_  ;
-                     |||| /\/``-.__\;'
-                     ::::/\/_
-     \{\{`-.__.-'(`(^^(^^^(^ 9 `.========='
-    {{{{{{ { ( ( (  (   (-----:=
-     {{.-'~~'-.(,(,,(,,,(__6_.'=========.
-                     ::::\/\
-                     |||| \/\  ,-'/,
-                    ////   \ `` _/ ;
-                   ''''     \  `  .'
-                             `---'
+	eval $lobster_printer $(./chezmoi source-path)/dot_dotfiles/scripts/lobster
 EOF
 }
 
