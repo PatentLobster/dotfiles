@@ -34,7 +34,7 @@ lobster () {
 		lobster_printer="cat"
 	fi
 	eval $lobster_printer $(chez source-path)/dot_dotfiles/scripts/lobster
-    echo \n
+    printf "\n"
 }
 
 
@@ -49,7 +49,7 @@ install_brew() {
     if test ! $(which brew); then
         info "Installing brew 🍺"
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        {{ if not .chezmoi.os "darwin" }}
+        {{ if ne .chezmoi.os "darwin" }}
             eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
         {{ end }}
     fi
