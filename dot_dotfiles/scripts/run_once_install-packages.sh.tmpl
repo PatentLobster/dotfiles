@@ -28,13 +28,26 @@ lobster () {
 
 }
 
+get_latest_release() {
+  curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
+    grep '"tag_name":' |                                            # Get tag line
+    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
+}
+
+
 lobster
 
 {{ if eq .chezmoi.os "darwin" }}
 # macOS-specific code
 
+if test ! $(which brew)
+then
+  info "Installing Homebrew for you."
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
 set +e
-info "installing brew packages"
+info "Installing brew packages"
 brew bundle --no-lock --file=/dev/stdin <<EOF
 
 tap "homebrew/cask"
@@ -104,17 +117,16 @@ info "installing deps"
 sudo apt update
 sudo apt install wget curl tmux zsh zoxide python3-dev python3-pip python3-setuptools
 
-info "installing brew"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+if test ! $(which brew)
+then
+    info "installing brew"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 info "installing brew packages"
 brew install thefuck lolcat
-
-get_latest_release() {
-  curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
-    grep '"tag_name":' |                                            # Get tag line
-    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
-}
 
 {{      if eq .chezmoi.arch "amd64" }}
 wget https://github.com/Peltoche/lsd/releases/download/$(get_latest_release "Peltoche/lsd")/lsd-musl_$(get_latest_release "Peltoche/lsd")_amd64.deb -O /tmp/lsd.deb
@@ -124,24 +136,28 @@ wget https://github.com/Peltoche/lsd/releases/download/$(get_latest_release "Pel
 
 sudo dpkg -i /tmp/lsd.deb
 
-info "installing vim plugins"
+info "Installing vim plugins"
 vim +PlugInstall +qall > /dev/null
 
 
 
 {{   else if eq .chezmoi.osRelease.id "fedora" }}
 # Fedora-specific code
-info "installing deps"
+info "Installing deps"
 sudo yum groupinstall 'Development Tools'
 sudo dnf install zsh zoxide lsd tmux
 
-info "installing brew"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-info "installing brew packages"
+if test ! $(which brew)
+then
+    info "Installing brew"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+fi
+info "Installing brew packages"
 brew install thefuck lolcat
 
-info "installing vim plugins"
+info "Installing vim plugins"
 vim +PlugInstall +qall > /dev/null
 
 
