@@ -1,4 +1,4 @@
-#!/executable_bin/sh
+#!/bin/sh
 #
 # Copy the current branch name to the clipboard.
 
