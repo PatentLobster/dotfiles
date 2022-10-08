@@ -24,9 +24,18 @@ lobster () {
 	else
 		lobster_printer="cat"
 	fi
-	eval $lobster_printer $(chezmoi source-path)/dot_dotfiles/scripts/lobster
+	eval $lobster_printer $(chez source-path)/dot_dotfiles/scripts/lobster
 
 }
+
+chez () {
+if command -v chezmoi &> /dev/null; then
+	chezmoi $@
+else
+	./chezmoi $@
+fi
+}
+
 
 get_latest_release() {
   curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
@@ -165,7 +174,7 @@ vim +PlugInstall +qall > /dev/null
 {{ end }}
 
 info "Setting zsh as default shell"
-
+set +e
 {{ if eq .chezmoi.os "darwin" }}
 chsh -s $(which zsh)
 {{ else }}
