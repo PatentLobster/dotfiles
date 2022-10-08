@@ -164,12 +164,12 @@ vim +PlugInstall +qall > /dev/null
 {{   end }}
 {{ end }}
 
-if [ !test -f "$HOME/.vprof" ]; then
+if [ ! -f "$HOME/.vprof" ]; then
     info "Creating empty $HOME/.vprof"
 	touch "$HOME/.vprof"
 fi
 
-if [ !test -f "$HOME/.zprofile" ]; then
+if [ ! -f "$HOME/.zprofile" ]; then
     info "Creating empty $HOME/.zprofile"
 	touch "$HOME/.zprofile"
 fi
