@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/executable_bin/sh
 #
 # Undo your last commit, but don't throw away your changes
 

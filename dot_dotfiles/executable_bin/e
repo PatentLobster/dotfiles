@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/executable_bin/sh
 #
 # Quick shortcut to an editor.
 #

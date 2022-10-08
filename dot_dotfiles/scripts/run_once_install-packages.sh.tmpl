@@ -164,18 +164,8 @@ vim +PlugInstall +qall > /dev/null
 {{   end }}
 {{ end }}
 
-if [ ! -f "$HOME/.vprof" ]; then
-    info "Creating empty $HOME/.vprof"
-	touch "$HOME/.vprof"
-fi
-
-if [ ! -f "$HOME/.zprofile" ]; then
-    info "Creating empty $HOME/.zprofile"
-	touch "$HOME/.zprofile"
-fi
-
-sudo chmod -R +x "$HOME/.dotfiles/bin"
-
+info "Setting zsh as default shell"
+chsh $(whoami) -s $(which zsh)
 success "Installation complete"
 
 lobster

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/executable_bin/bash
 
 displayUsageAndExit() {
 	echo "encrypt 🔐"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/executable_bin/bash
 
 salt=$HOME/.secrets/salt
 if [ "$1" != "" ]; then
