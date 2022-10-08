@@ -32,7 +32,7 @@ chez () {
 if command -v chezmoi &> /dev/null; then
 	chezmoi $@
 else
-	./chezmoi $@
+	$HOME/bin/chezmoi $@
 fi
 }
 
