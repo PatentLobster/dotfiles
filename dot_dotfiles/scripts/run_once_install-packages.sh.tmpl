@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 info () {
   printf "\r  [ \033[00;34m..\033[0m ] $1\n"
@@ -18,6 +18,15 @@ fail () {
   exit
 }
 
+chez () {
+if command -v chezmoi &> /dev/null; then
+	chezmoi $@
+else
+	$HOME/bin/chezmoi $@
+fi
+}
+
+
 lobster () {
 	if command -v lolcat &> /dev/null; then
 		lobster_printer="lolcat"
@@ -28,13 +37,6 @@ lobster () {
 
 }
 
-chez () {
-if command -v chezmoi &> /dev/null; then
-	chezmoi $@
-else
-	$HOME/bin/chezmoi $@
-fi
-}
 
 
 get_latest_release() {
