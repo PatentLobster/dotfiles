@@ -115,7 +115,7 @@ vim +PlugInstall +qall > /dev/null
 
 info "installing deps"
 sudo apt update
-sudo apt install wget curl tmux zsh zoxide python3-dev python3-pip python3-setuptools
+sudo apt install -y wget curl tmux zsh zoxide python3-dev python3-pip python3-setuptools
 
 
 if test ! $(which brew)
@@ -144,8 +144,8 @@ vim +PlugInstall +qall > /dev/null
 {{   else if eq .chezmoi.osRelease.id "fedora" }}
 # Fedora-specific code
 info "Installing deps"
-sudo yum groupinstall 'Development Tools'
-sudo dnf install zsh zoxide lsd tmux
+sudo yum -y groupinstall 'Development Tools'
+sudo dnf -y install zsh zoxide lsd tmux
 
 if test ! $(which brew)
 then
@@ -164,11 +164,13 @@ vim +PlugInstall +qall > /dev/null
 {{   end }}
 {{ end }}
 
-if test -f "$HOME/.vprof"; then
+if [ !test -f "$HOME/.vprof" ]; then
+    info "Creating empty $HOME/.vprof"
 	touch "$HOME/.vprof"
 fi
 
-if test -f "$HOME/.zprofile"; then
+if [ !test -f "$HOME/.zprofile" ]; then
+    info "Creating empty $HOME/.zprofile"
 	touch "$HOME/.zprofile"
 fi
 

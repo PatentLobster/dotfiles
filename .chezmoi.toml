@@ -1,2 +1,2 @@
 [diff]
-    exclude = ["dot_dotfiles/scripts"]
+    exclude = ["dot_dotfiles/scripts", ".dotfiles/zsh/ohmyzsh/cache/completions"]
