@@ -110,7 +110,7 @@ info "installing vim plugins"
 vim +PlugInstall +qall > /dev/null
 
 {{ else if eq .chezmoi.os "linux" }}
-{{   if eq .chezmoi.osRelease.id "debian" }}
+{{   if eq .chezmoi.osRelease.idLike "debian" }}
 # Debian-specific code
 
 info "installing deps"
@@ -165,7 +165,13 @@ vim +PlugInstall +qall > /dev/null
 {{ end }}
 
 info "Setting zsh as default shell"
+
+{{ if eq .chezmoi.os "darwin" }}
+chsh -s $(which zsh)
+{{ else }}
 chsh $(whoami) -s $(which zsh)
+{{ end }}
+
 success "Installation complete"
 
 lobster
