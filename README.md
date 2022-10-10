@@ -9,7 +9,7 @@
 ### Installation command:
 
 ```
-sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init --apply https://github.com/patentlobster/dotfiles.git
+sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init --apply https://github.com/patentlobster/dotfiles.git --exclude=encrypted
 ```
 -----
 

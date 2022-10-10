@@ -1,7 +1,2 @@
-encryption = "age"
-[age]
-    identity = "~/.ssh/id_ed25519"
-    symmetric = true
-
 [diff]
     exclude = ["dot_dotfiles/scripts"]
