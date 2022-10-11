@@ -53,9 +53,22 @@ install_brew() {
             eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
         {{ end }}
     fi
-    if test ! $(which gum); then
-        info "Installing gum 🔮"
-        brew install gum
+
+    if [ $(which brew) ]; then
+      if [ ! $(which gum) ]; then
+          info "Installing gum 🔮"
+          brew install gum
+      fi
+      {{ if eq .chezmoi.os "linux" }}
+        {{ if eq .chezmoi.osRelease.id "amzn" }}
+          {{      if eq .chezmoi.arch "amd64" }}
+            wget "https://github.com/charmbracelet/gum/releases/download/$(get_latest_release "charmbracelet/gum")/gum_$(get_latest_release "charmbracelet/gum" | sed "s/v//g")_linux_amd64.rpm" -O /tmp/gum.rpm
+          {{      else }}
+            wget "https://github.com/charmbracelet/gum/releases/download/$(get_latest_release "charmbracelet/gum")/gum_$(get_latest_release "charmbracelet/gum" | sed "s/v//g")_linux_arm64.rpm" -O /tmp/gum.rpm
+          {{      end }}
+          rpm -i /tmp/gum.rpm
+        {{ end }}
+      {{ end }}
     fi
 }
 
@@ -70,8 +83,6 @@ info "Installing brew packages 📦"
 brew bundle --no-lock --file=$(chez source-path)/dot_dotfiles/Brewfile
 set -e
 
-info "Installing vim plugins 👾"
-vim +PlugInstall +qall > /dev/null
 
 {{ else if eq .chezmoi.os "linux" }}
 {{   if eq .chezmoi.osRelease.idLike "debian" }}
@@ -92,8 +103,6 @@ wget https://github.com/Peltoche/lsd/releases/download/$(get_latest_release "Pel
 
 sudo dpkg -i /tmp/lsd.deb
 
-info "Installing vim plugins 👾"
-vim +PlugInstall +qall > /dev/null
 
 {{   else if eq .chezmoi.osRelease.id "fedora" }}
 # Fedora-specific code
@@ -105,21 +114,33 @@ sudo dnf -y install zsh zoxide lsd tmux
 info "Installing brew packages 📦"
 brew install thefuck lolcat
 
-info "Installing vim plugins 👾"
-vim +PlugInstall +qall > /dev/null
 
+{{   else if eq .chezmoi.osRelease.id "amzn" }}
+
+info "Installing deps 🚀"
+sudo yum -y groupinstall 'Development Tools'
+sudo yum install -y zsh vim wget tar tmux python3-pip python3-devel gcc
+
+pip3 install thefuck
+
+{{      if eq .chezmoi.arch "arm64" }}
+  wget "https://github.com/ajeetdsouza/zoxide/releases/download/$(get_latest_release "ajeetdsouza/zoxide")/zoxide-$(get_latest_release "ajeetdsouza/zoxide" | sed "s/v//g")-aarch64-unknown-linux-musl.tar.gz" -O /tmp/zoxide.tar.gz
+{{      else }}
+  wget "https://github.com/ajeetdsouza/zoxide/releases/download/$(get_latest_release "ajeetdsouza/zoxide")/zoxide-$(get_latest_release "ajeetdsouza/zoxide" | sed "s/v//g")-x86_64-unknown-linux-musl.tar.gz" -O /tmp/zoxide.tar.gz 
+{{      end }}
+
+tar -xf /tmp/zoxide.tar.gz -C /tmp
+cp /tmp/zoxide /usr/local/bin
+
+{{      if eq .chezmoi.arch "amd64" }}
+wget "https://github.com/Peltoche/lsd/releases/download/$(get_latest_release "Peltoche/lsd")/lsd-$(get_latest_release "Peltoche/lsd")-x86_64-unknown-linux-musl.tar.gz" -O /tmp/lsd.tar.gz
+{{      else }}
+wget "https://github.com/Peltoche/lsd/releases/download/$(get_latest_release "Peltoche/lsd")/lsd-$(get_latest_release "Peltoche/lsd")-aarch64-unknown-linux-musl.tar.gz" -O /tmp/lsd.tar.gz
+{{      end }}
+
+
+tar -xf /tmp/lsd.tar.gz -C /tmp
+cp /tmp/lsd*/lsd /usr/local/bin
 
 {{   end }}
 {{ end }}
-
-info "Setting zsh as default shell"
-set +e
-{{ if eq .chezmoi.os "darwin" }}
-chsh -s $(which zsh)
-{{ else }}
-chsh $(whoami) -s $(which zsh)
-{{ end }}
-
-success "Installation complete"
-
-lobster
