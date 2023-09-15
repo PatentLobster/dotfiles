@@ -34,7 +34,7 @@ lobster () {
 	else
 		lobster_printer="cat"
 	fi
-	eval $lobster_printer $(chez source-path)/dot_dotfiles/scripts/lobster
+	eval $lobster_printer $(chez source-path)/home/dot_dotfiles/scripts/lobster
     printf "\n"
 }
 
@@ -47,6 +47,14 @@ if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
 	if [ $(gum confirm "No '~/.ssh/id_ ed25519' found, would you like to create one?" --affirmative="Heck yeah\!" --negative="Hell no\!" --default=0) ]; then
 		ssh-keygen -C $(gum input --placeholder="Enter email recipt for the key") -f "$HOME/.ssh/id_ed25519"
 	fi
+fi
+
+if [ ! -f "$HOME/.zprofile" ]; then
+    touch "$HOME/.zprofile"
+fi
+
+if [ ! -f "$HOME/.vprofile" ]; then
+touch "$HOME/.vprofile"
 fi
 
 

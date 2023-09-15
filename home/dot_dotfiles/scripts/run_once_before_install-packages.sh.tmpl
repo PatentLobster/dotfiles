@@ -33,7 +33,7 @@ function lobster() {
 	else
 		lobster_printer="cat"
 	fi
-	eval $lobster_printer $(chez source-path)/dot_dotfiles/scripts/lobster
+	eval $lobster_printer $(chez source-path)/home/dot_dotfiles/scripts/lobster
     printf "\n"
 }
 
@@ -82,10 +82,10 @@ set +e
 info "Installing brew packages 📦"
 
     {{ if (.install_apps) }}
-        brew bundle --no-lock --file=$(chez source-path)/dot_dotfiles/minimal.Brewfile
+        brew bundle --no-lock --file=$(chez source-path)/home/dot_dotfiles/minimal.Brewfile
     {{ end }}
     {{ if (.install_casks) }}
-        brew bundle --no-lock --file=$(chez source-path)/dot_dotfiles/casks.Brewfile
+        brew bundle --no-lock --file=$(chez source-path)/home/dot_dotfiles/casks.Brewfile
     {{ end }}
 set -e
 
