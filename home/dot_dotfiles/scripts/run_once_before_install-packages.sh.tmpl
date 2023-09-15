@@ -81,10 +81,10 @@ install_brew
 set +e
 info "Installing brew packages 📦"
 
-    {{ if (.install_apps) }}
+    {{ if (.installApps) }}
         brew bundle --no-lock --file=$(chez source-path)/home/dot_dotfiles/minimal.Brewfile
     {{ end }}
-    {{ if (.install_casks) }}
+    {{ if (.installCasks) }}
         brew bundle --no-lock --file=$(chez source-path)/home/dot_dotfiles/casks.Brewfile
     {{ end }}
 set -e
