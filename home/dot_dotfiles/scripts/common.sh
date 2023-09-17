@@ -21,7 +21,12 @@ chez () {
 if command -v chezmoi &> /dev/null; then
 	chezmoi $@
 else
-	$HOME/bin/chezmoi $@
+  if [ -f "$HOME/bin/chezmoi" ]; then
+	  $HOME/bin/chezmoi $@
+	fi
+	if [ -f "$HOME/.local/bin/chezmoi" ]; then
+	  $HOME/.local/bin/chezmoi $@
+	fi
 fi
 }
 
