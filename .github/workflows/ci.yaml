@@ -8,10 +8,10 @@ on:
 
 jobs:
   test:
+    env:
+      CODESPACES: True
     strategy:
       fail-fast: false
-      env:
-        CODESPACES: True
       matrix:
         variant: [devcontainer, wsl, gnome]
         os: [ubuntu-20.04, ubuntu-22.04]
