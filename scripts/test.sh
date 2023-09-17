@@ -169,6 +169,12 @@ for variant in "${variants[@]}"; do
     echo "Testing variant '${variant}' with OS '${os}'"
 
     case "${variant}" in
+    darwin)
+      echo $(pwd)
+      ls
+      ./install.sh
+      ;;
+
     devcontainer)
       run_test "${os}" ""
       ;;
