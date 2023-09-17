@@ -10,6 +10,8 @@ jobs:
   test:
     strategy:
       fail-fast: false
+      env:
+        CODESPACES: True
       matrix:
         variant: [devcontainer, wsl, gnome]
         os: [ubuntu-20.04, ubuntu-22.04]
@@ -21,5 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - run: |
           scripts/test.sh --variant "${{ matrix.variant }}" --os "${{ matrix.os }}"
