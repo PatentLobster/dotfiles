@@ -9,7 +9,7 @@ on:
 jobs:
   test:
     env:
-      REMOTE_CONTAINERS: True
+      REMOTE_CONTAINERS: "True"
     strategy:
       fail-fast: false
       matrix:
