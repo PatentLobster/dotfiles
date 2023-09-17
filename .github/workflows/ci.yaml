@@ -16,8 +16,9 @@ jobs:
         variant: [devcontainer, wsl, gnome]
         os: [ubuntu-20.04, ubuntu-22.04]
         include:
-          - variant: devcontainer
-            os: alpine
+#       TODO: Add alpine and arch supports
+#          - variant: devcontainer
+#            os: alpine
           - variant: devcontainer
             os: debian
           - os: macos-11

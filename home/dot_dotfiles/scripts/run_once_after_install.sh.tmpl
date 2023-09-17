@@ -26,7 +26,7 @@ fi
 info "Setting zsh as default shell"
 set +e
 {{ if eq .chezmoi.os "darwin" }}
-chsh -s $(which zsh)
+chsh -s $(which zsh) $(whoami)
 {{ else }}
 sudo chsh $(whoami) -s $(which zsh)
 {{ end }}
