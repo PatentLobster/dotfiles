@@ -119,7 +119,7 @@ run_test() {
   local -r setup_script="$2"
 
   cmd time docker run --rm --init --interactive --user vscode \
-    --env TERM --env COLORTERM --env REMOTE_CONTAINERS \
+    --env TERM --env COLORTERM --env REMOTE_CONTAINERS=true \
     --volume "${dotfiles_root}:/original-dotfiles:ro" \
     "mcr.microsoft.com/devcontainers/base:${os}" \
     bash <<EOF
