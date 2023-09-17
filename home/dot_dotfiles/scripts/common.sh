@@ -37,7 +37,7 @@ lobster () {
 	else
 		lobster_printer="cat"
 	fi
-	eval $lobster_printer $(chez source-path)/home/dot_dotfiles/scripts/lobster
+	eval $lobster_printer $(chez source-path)/dot_dotfiles/scripts/lobster
     printf "\n"
 }
 
