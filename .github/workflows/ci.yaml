@@ -20,6 +20,9 @@ jobs:
             os: alpine
           - variant: devcontainer
             os: debian
+          - os: macos-11
+          - os: macos-12
+          - os: macos-13
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
