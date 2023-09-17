@@ -165,13 +165,12 @@ if ((${#oses[@]} == 0)); then
 fi
 
 for variant in "${variants[@]}"; do
-  export REMOTE_CONTAINERS=true
   for os in "${oses[@]}"; do
     echo "Testing variant '${variant}' with OS '${os}'"
 
     case "${variant}" in
     devcontainer)
-      run_test "${os}"
+      run_test "${os}" ""
       ;;
 
     wsl)
