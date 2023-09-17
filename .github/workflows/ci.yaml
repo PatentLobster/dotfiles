@@ -21,8 +21,11 @@ jobs:
           - variant: devcontainer
             os: debian
           - os: macos-11
+            variant: darwin
           - os: macos-12
+            variant: darwin
           - os: macos-13
+            variant: darwin
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
