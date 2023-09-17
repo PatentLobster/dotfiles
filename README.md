@@ -1,6 +1,6 @@
 # PatentLobster's dotfiles.
 #### Cross-platform dotfiles Powered by [Chezmoi](https://www.chezmoi.io/)
-![ci_badge](https://github.com/patentlobster/dotfiles/actions/workflows/test.yaml/badge.svg)
+![ci_badge](https://github.com/patentlobster/dotfiles/actions/workflows/ci.yaml/badge.svg)
 -----
 
 ![screenshot](.github/screenshot.png)
