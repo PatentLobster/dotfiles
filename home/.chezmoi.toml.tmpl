@@ -20,9 +20,11 @@
 
 sourceDir = {{ .chezmoi.sourceDir | quote }}
 encryption = "age"
+{{if $storeSecrets }}
 [age]
   identity = {{ joinPath .chezmoi.homeDir ".ssh/id_ed25519" | quote }}
   symmetric = true
+{{end}}
 
 [data]
   email = {{ $email | quote }}
