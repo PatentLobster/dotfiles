@@ -119,7 +119,7 @@ run_test() {
   local -r setup_script="$2"
 
   cmd time docker run --rm --init --interactive --user vscode \
-    --env TERM --env COLORTERM -env REMOTE_CONTAINERS\
+    --env TERM --env COLORTERM --env REMOTE_CONTAINERS\
     --volume "${dotfiles_root}:/original-dotfiles:ro" \
     "mcr.microsoft.com/devcontainers/base:${os}" \
     bash <<EOF
@@ -165,12 +165,13 @@ if ((${#oses[@]} == 0)); then
 fi
 
 for variant in "${variants[@]}"; do
+  export REMOTE_CONTAINERS=true
   for os in "${oses[@]}"; do
     echo "Testing variant '${variant}' with OS '${os}'"
 
     case "${variant}" in
     devcontainer)
-      run_test "${os}" "export REMOTE_CONTAINERS=true"
+      run_test "${os}"
       ;;
 
     wsl)
