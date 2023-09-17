@@ -1,5 +1,5 @@
 #!/bin/bash
-{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "amzn")  }}
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "amzn")  }}
 
 source {{ joinPath .chezmoi.sourceDir "/dot_dotfiles/scripts/common.sh" | quote }}
 install_brew() {
