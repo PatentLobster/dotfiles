@@ -7,7 +7,7 @@
 
 {{- $email        := "37775846+PatentLobster@users.noreply.github.com" -}}
 {{- $storeSecrets := false -}}
-{{- $installApps  := false -}}
+{{- $installApps  := true -}}
 {{- $installCasks := false -}}
 {{- if not $codespaces -}}
   {{- $email        = promptStringOnce . "email" "Email for .gitconfig" -}}
