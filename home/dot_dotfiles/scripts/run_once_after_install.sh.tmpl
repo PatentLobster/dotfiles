@@ -1,54 +1,19 @@
 #!/bin/bash
 
 
-info () {
-  printf "\r  [ \033[00;34m..\033[0m ] $1\n"
-}
-
-user () {
-  printf "\r  [ \033[0;33m??\033[0m ] $1\n"
-}
-
-success () {
-  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
-}
-
-fail () {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
-  echo ''
-  exit
-}
-
-chez () {
-if command -v chezmoi &> /dev/null; then
-	chezmoi $@
-else
-	$HOME/bin/chezmoi $@
-fi
-}
-
-
-lobster () {
-	if command -v lolcat &> /dev/null; then
-		lobster_printer="lolcat"
-	else
-		lobster_printer="cat"
-	fi
-	eval $lobster_printer $(chez source-path)/home/dot_dotfiles/scripts/lobster
-    printf "\n"
-}
+source {{ joinPath .chezmoi.sourceDir "/dot_dotfiles/scripts/common.sh" | quote }}
 
 
 info "Installing vim plugins 👾"
 vim +PlugInstall +qall > /dev/null
 
-
+{{ if (.storeSecrets) }}
 if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
 	if [ $(gum confirm "No '~/.ssh/id_ ed25519' found, would you like to create one?" --affirmative="Heck yeah\!" --negative="Hell no\!" --default=0) ]; then
 		ssh-keygen -C $(gum input --placeholder="Enter email recipt for the key") -f "$HOME/.ssh/id_ed25519"
 	fi
 fi
-
+{{ end }}
 if [ ! -f "$HOME/.zprofile" ]; then
     touch "$HOME/.zprofile"
 fi
@@ -63,7 +28,7 @@ set +e
 {{ if eq .chezmoi.os "darwin" }}
 chsh -s $(which zsh)
 {{ else }}
-chsh $(whoami) -s $(which zsh)
+sudo chsh $(whoami) -s $(which zsh)
 {{ end }}
 
 

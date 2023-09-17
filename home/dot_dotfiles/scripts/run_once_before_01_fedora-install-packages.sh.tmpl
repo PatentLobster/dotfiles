@@ -1,0 +1,22 @@
+#!/bin/bash
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "fedora")  }}
+
+
+
+source {{ joinPath .chezmoi.sourceDir "/dot_dotfiles/scripts/common.sh" | quote }}
+
+lobster
+install_brew
+
+
+# Fedora-specific code
+info "Installing deps 🚀"
+sudo yum -y groupinstall 'Development Tools'
+sudo dnf -y install zsh zoxide lsd tmux
+
+
+info "Installing brew packages 📦"
+brew install thefuck lolcat
+
+
+{{ end }}

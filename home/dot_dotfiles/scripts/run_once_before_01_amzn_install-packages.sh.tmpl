@@ -1,0 +1,36 @@
+#!/bin/bash
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "amzn")  }}
+
+source {{ joinPath .chezmoi.sourceDir "/dot_dotfiles/scripts/common.sh" | quote }}
+
+
+lobster
+install_brew
+
+info "Installing deps 🚀"
+sudo yum -y groupinstall 'Development Tools'
+sudo yum install -y zsh vim wget tar tmux python3-pip python3-devel gcc
+
+pip3 install thefuck
+
+{{      if eq .chezmoi.arch "arm64" }}
+  wget "https://github.com/ajeetdsouza/zoxide/releases/download/$(get_latest_release "ajeetdsouza/zoxide")/zoxide-$(get_latest_release "ajeetdsouza/zoxide" | sed "s/v//g")-aarch64-unknown-linux-musl.tar.gz" -O /tmp/zoxide.tar.gz
+{{      else }}
+  wget "https://github.com/ajeetdsouza/zoxide/releases/download/$(get_latest_release "ajeetdsouza/zoxide")/zoxide-$(get_latest_release "ajeetdsouza/zoxide" | sed "s/v//g")-x86_64-unknown-linux-musl.tar.gz" -O /tmp/zoxide.tar.gz 
+{{      end }}
+
+tar -xf /tmp/zoxide.tar.gz -C /tmp
+cp /tmp/zoxide /usr/local/bin
+
+{{      if eq .chezmoi.arch "amd64" }}
+wget "https://github.com/Peltoche/lsd/releases/download/$(get_latest_release "Peltoche/lsd")/lsd-$(get_latest_release "Peltoche/lsd" | cut -c2-)-x86_64-unknown-linux-musl.tar.gz" -O /tmp/lsd.tar.gz
+{{      else }}
+wget "https://github.com/Peltoche/lsd/releases/download/$(get_latest_release "Peltoche/lsd")/lsd-$(get_latest_release "Peltoche/lsd" | cut -c2-)-aarch64-unknown-linux-musl.tar.gz" -O /tmp/lsd.tar.gz
+{{      end }}
+
+
+tar -xf /tmp/lsd.tar.gz -C /tmp
+cp /tmp/lsd*/lsd /usr/local/bin
+
+
+{{ end }}

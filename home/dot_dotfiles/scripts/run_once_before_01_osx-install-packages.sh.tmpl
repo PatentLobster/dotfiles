@@ -1,0 +1,24 @@
+#!/bin/bash
+{{ if eq .chezmoi.os "darwin" }}
+
+
+
+source {{ joinPath .chezmoi.sourceDir "/dot_dotfiles/scripts/common.sh" | quote }}
+
+# macOS-specific code
+
+lobster
+install_brew
+
+
+set +e
+info "Installing brew packages 📦"
+
+{{ if (.installApps) }}
+    brew bundle --no-lock --file=$(chez source-path)/home/dot_dotfiles/brew/minimal.Brewfile
+{{ end }}
+{{ if (.installCasks) }}
+    brew bundle --no-lock --file=$(chez source-path)/home/dot_dotfiles/brew/casks.Brewfile
+{{ end }}
+
+{{ end }}

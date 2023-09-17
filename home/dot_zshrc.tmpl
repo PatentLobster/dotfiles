@@ -13,11 +13,11 @@ DISABLE_UPDATE_PROMPT="true"
 # ENABLE_CORRECTION="true"
 {{ if eq .chezmoi.os "darwin" }}
 plugins=(macos git git-trim zsh-autosuggestions zsh-syntax-highlighting fzf-tab zsh-navigation-tools urltools systemadmin extract golang fancy-ctrl-z encode64 vi-mode artisan)
-export PATH=/opt/homebrew/bin:$DOTFILES/bin:$PATH
+export PATH=/opt/homebrew/bin:$HOME/.local/bin:$DOTFILES/bin:$PATH
 {{ else if eq .chezmoi.os "linux" }}
 plugins=(git git-trim zsh-autosuggestions zsh-syntax-highlighting fzf-tab zsh-navigation-tools urltools systemadmin extract golang fancy-ctrl-z encode64 vi-mode artisan)
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-export PATH=$HOME/bin:/usr/local/bin:$DOTFILES/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$DOTFILES/bin:$HOME/.local/bin:$PATH
 {{ end }}
 
 source $ZSH/oh-my-zsh.sh
