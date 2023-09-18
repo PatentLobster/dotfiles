@@ -1,5 +1,5 @@
 #!/bin/bash
-{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian")  }}
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian" | eq .chezmoi.osRelease.id "ubuntu" ) }}
 
 
 source {{ joinPath .chezmoi.sourceDir "/dot_dotfiles/scripts/common.sh" | quote }}
@@ -37,7 +37,7 @@ install_brew
 
 info "Installing deps 🚀"
 sudo apt update
-sudo apt install -y wget curl tmux zsh zoxide python3-dev python3-pip python3-setuptools snapd fzf
+sudo apt install -y wget curl tmux vim zsh zoxide python3-dev python3-pip python3-setuptools snapd fzf npm
 
 {{ if eq .chezmoi.arch "amd64" }}
     install_brew
