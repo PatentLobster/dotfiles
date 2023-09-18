@@ -16,7 +16,7 @@ plugins=(macos git git-trim zsh-autosuggestions zsh-syntax-highlighting fzf-tab 
 export PATH=/opt/homebrew/bin:$HOME/.local/bin:$DOTFILES/bin:$PATH
 {{ else if eq .chezmoi.os "linux" }}
 plugins=(git git-trim zsh-autosuggestions zsh-syntax-highlighting fzf-tab zsh-navigation-tools urltools systemadmin extract golang fancy-ctrl-z encode64 vi-mode artisan)
-{{ if not eq .chezmoi.arch "arm64" }}
+{{ if not (eq .chezmoi.arch "arm64") }}
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{ end }}
 export PATH=$HOME/bin:/usr/local/bin:$DOTFILES/bin:$HOME/.local/bin:$PATH
