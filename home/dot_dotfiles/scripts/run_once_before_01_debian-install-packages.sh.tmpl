@@ -1,5 +1,5 @@
 #!/bin/bash
-{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian" | eq .chezmoi.osRelease.id "ubuntu" ) }}
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian" or eq .chezmoi.osRelease.id "ubuntu" ) }}
 
 
 source {{ joinPath .chezmoi.sourceDir "/dot_dotfiles/scripts/common.sh" | quote }}
