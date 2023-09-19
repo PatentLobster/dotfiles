@@ -65,7 +65,9 @@ function emulate_typing() {
   tmux send-keys -t "$session_name" "$text_to_type" C-m
 }
 
-tmux new -d -s "$session_name" -x $x -y $y "zsh"
+tmux new  -s "$session_name" -x $x -y $y "zsh" -d
+tmux ls
+
 
 #emulate_human_typing "$(cat input.sh)"
 record
