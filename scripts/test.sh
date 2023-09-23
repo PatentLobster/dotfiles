@@ -120,7 +120,7 @@ run_test() {
   local -r post_script="$3"
   cmd time docker run --rm --init --interactive --user vscode \
     --env TERM --env COLORTERM --env REMOTE_CONTAINERS=true \
-    --volume "${dotfiles_root}:/original-dotfiles:ro" \
+    --volume "${dotfiles_root}:/original-dotfiles" \
     "mcr.microsoft.com/devcontainers/base:${os}" \
     bash <<EOF
 set -euxo pipefail
