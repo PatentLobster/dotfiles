@@ -38,13 +38,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        variant: [devcontainer]
+        variant: [tmux]
         os: [ubuntu-22.04]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: |
           scripts/test.sh --variant "${{ matrix.variant }}" --os "${{ matrix.os }}"
+          ls
       - uses: actions/upload-artifact@v3
         with:
           name: recording.yaml
