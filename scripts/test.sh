@@ -179,7 +179,7 @@ for variant in "${variants[@]}"; do
       ;;
 
     tmux)
-      run_test "${os}" "" "ls ~/.repo &&   ~/.repo/scripts/vhs/tmux-vhs.sh"
+      ./install.sh  && scripts/vhs/tmux-vhs.sh
       ;;
 
     devcontainer)
