@@ -1,6 +1,6 @@
 #!/bin/bash -x
 #
-
+tmux set-option -p remain-on-exit
 sudo npm install -g terminalizer
 sudo apt update
 sudo apt install libnss3 lsb-release xdg-utils wget ffmpeg bc
