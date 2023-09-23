@@ -9,8 +9,8 @@ x="${X:-180}"
 y="${Y:-30}"
 export IFS=$'\n'
 session_name="my_session"
-base_dir="$(dirname "$(chezmoi source-path))"
-terminalizer_config="$(dirname "$(chezmoi source-path)")/scripts/vhs/config.yml"
+base_dir="$(dirname "$(chezmoi source-path)")"
+terminalizer_config="${base_dir}/scripts/vhs/config.yml"
 terminalizer record -c $terminalizer_config "${base_dir}/demo"
 function record() {
     tmux send-keys -t "$session_name" "terminalizer record -c $terminalizer_config demo"
