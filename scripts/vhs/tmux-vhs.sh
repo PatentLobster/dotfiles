@@ -64,7 +64,7 @@ function emulate_typing() {
   # Send the text to the specified tmux session
   tmux send-keys -t "$session_name" "$text_to_type" C-m
 }
-( exec </dev/tty; exec <&1; TMUX= tmux new  -s "$session_name" -x $x -y $y "zsh" -d)
+tmux new  -s "$session_name" -d -x $x -y $y "zsh"
 #exec tmux new  -s "$session_name" -x $x -y $y "zsh" -d
 tmux ls
 
