@@ -45,8 +45,8 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           scripts/test.sh --variant "${{ matrix.variant }}" --os "${{ matrix.os }}"
-          ls
+          ls scripts/vhs
       - uses: actions/upload-artifact@v3
         with:
           name: recording.yaml
-          path: demo.yaml
+          path: /scripts/vhs/demo.yaml
