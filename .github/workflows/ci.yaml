@@ -45,7 +45,6 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           scripts/test.sh --variant "${{ matrix.variant }}" --os "${{ matrix.os }}"
-          scripts/vhs/tmux-vhs.sh
       - uses: actions/upload-artifact@v3
         with:
           name: recording.yaml

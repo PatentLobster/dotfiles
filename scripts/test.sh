@@ -117,7 +117,7 @@ cmd() {
 run_test() {
   local -r os="$1"
   local -r setup_script="$2"
-
+  local -r post_script="$3"
   cmd time docker run --rm --init --interactive --user vscode \
     --env TERM --env COLORTERM --env REMOTE_CONTAINERS=true \
     --volume "${dotfiles_root}:/original-dotfiles:ro" \
@@ -146,6 +146,9 @@ source ~/.profile
 set -xeu
 
 chezmoi data
+
+${post_script}
+
 EOF
 }
 
@@ -176,7 +179,11 @@ for variant in "${variants[@]}"; do
       ;;
 
     devcontainer)
-      run_test "${os}" ""
+      run_test "${os}" "" "~/.repo/scripts/vhs.sh"
+      ;;
+
+    zsh)
+      run_test "${os}" "" ""
       ;;
 
     wsl)
@@ -202,7 +209,7 @@ EOM
 sudo chmod +x /usr/local/bin/wslvar
 
 EOF
-      )"
+      )" ""
       ;;
 
     gnome)
@@ -212,7 +219,7 @@ EOF
 sudo apt update --yes
 sudo apt install -y --no-install-recommends gnome-shell zsh
 EOF
-      )"
+      )" ""
       ;;
 
     *)
