@@ -10,6 +10,7 @@ y="${Y:-30}"
 export IFS=$'\n'
 session_name="my_session"
 terminalizer_config="$(dirname "$(chezmoi source-path)")/scripts/vhs/config.yml"
+terminalizer record -c $terminalizer_config demo
 function record() {
     tmux send-keys -t "$session_name" "terminalizer record -c $terminalizer_config demo"
     tmux send-keys -t "$session_name" C-m
