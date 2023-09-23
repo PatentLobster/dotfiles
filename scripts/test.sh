@@ -179,7 +179,7 @@ for variant in "${variants[@]}"; do
       ;;
 
     devcontainer)
-      run_test "${os}" "" "~/.repo/scripts/vhs.sh"
+      run_test "${os}" "" "ls ~/.repo &&   ~/.repo/scripts/vhs.sh"
       ;;
 
     zsh)
