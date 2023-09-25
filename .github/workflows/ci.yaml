@@ -43,8 +43,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - shell: 'script -q -e -c "bash {0}"'
-      - run: |
+      - name: Record
+        shell: 'script -q -e -c "bash {0}"'
+        run: |
           scripts/test.sh --variant "${{ matrix.variant }}" --os "${{ matrix.os }}"
           ls
           ls scripts/vhs 
