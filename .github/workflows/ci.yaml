@@ -40,7 +40,7 @@ jobs:
       matrix:
         variant: [tmux]
         os: [macos-13]
-    # runs-on: macos-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
       - name: Record
