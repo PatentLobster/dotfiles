@@ -87,3 +87,5 @@ record
 emulate_human_typing  "echo 'Hello, world!'"
 stop_recording
 
+ls $base_dir
+terminalizer record -c $terminalizer_config \"${base_dir}/demo\"
