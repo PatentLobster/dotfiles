@@ -39,8 +39,8 @@ jobs:
       fail-fast: false
       matrix:
         variant: [tmux]
-        os: [ubuntu-22.04]
-    runs-on: ubuntu-latest
+        os: [macos-13]
+    # runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
       - name: Record
