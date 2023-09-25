@@ -179,7 +179,8 @@ for variant in "${variants[@]}"; do
       ;;
 
     tmux)
-      ./install.sh  && scripts/vhs/tmux-vhs.sh
+      ./install.sh  && scripts/vhs/tmux-vhs.sh 
+      ls && ls scripts/vhs
       ;;
 
     devcontainer)
