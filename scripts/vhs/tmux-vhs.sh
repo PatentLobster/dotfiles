@@ -5,9 +5,6 @@ x="${X:-180}"
 y="${Y:-30}"
 export IFS=$'\n'
 session_name="my_session"
-base_dir="$(dirname "$(chez source-path)")"
-terminalizer_config="${base_dir}/scripts/vhs/config.yml"
-
 
 
 function chez () {
@@ -80,6 +77,11 @@ function emulate_typing() {
   # Send the text to the specified tmux session
   tmux send-keys -t "$session_name" "$text_to_type" C-m
 }
+
+base_dir="$(dirname "$(chez source-path)")"
+terminalizer_config="${base_dir}/scripts/vhs/config.yml"
+
+
 RUNNER_TRACKING_ID="" && tmux new  -s "$session_name" -d -x $x -y $y "zsh"
 tmux ls
 #emulate_human_typing "$(cat input.sh)"
