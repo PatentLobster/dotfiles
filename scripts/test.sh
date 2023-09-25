@@ -155,7 +155,7 @@ EOF
 set -euo pipefail
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
-dotfiles_root="$(realpath "${script_dir}/..")"
+dotfiles_root="$(dirname "${script_dir}")"
 
 debug="${_arg_debug}"
 variants=("${_arg_variant[@]}")
