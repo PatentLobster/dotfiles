@@ -36,8 +36,10 @@ install_brew() {
 lobster
 install_brew
 
-
-set +e
+{{ $codespaces := env "REMOTE_CONTAINERS" | not | not }}
+{{ if not $codespaces }}
+  set +e
+{{ end }}
 info "Installing brew packages 📦"
 
 {{ if (.installApps) }}
