@@ -3,10 +3,7 @@ cask "vlc"
 cask "github"
 cask "transmit"
 cask "sublime-text"
-cask "gpg-suite"
-
 cask "sequel-ace"
-cask "beekeeper-studio"
 cask "tableplus"
 
 cask "font-lato"
