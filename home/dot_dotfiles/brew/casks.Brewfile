@@ -14,3 +14,4 @@ cask "font-source-code-pro"
 # cask "font-source-sans-pro"
 # cask "font-source-serif-pro"
 cask "font-hack-nerd-font"
+cask hiddenbar
