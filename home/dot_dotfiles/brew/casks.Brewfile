@@ -15,3 +15,4 @@ cask "font-source-code-pro"
 # cask "font-source-serif-pro"
 cask "font-hack-nerd-font"
 cask hiddenbar
+cask burp-suite
