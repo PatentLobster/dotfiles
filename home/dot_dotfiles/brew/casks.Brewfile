@@ -16,3 +16,7 @@ cask "font-source-code-pro"
 cask "font-hack-nerd-font"
 cask hiddenbar
 cask burp-suite
+cask shottr
+cask utm
+cask gqrx
+cask gimp
