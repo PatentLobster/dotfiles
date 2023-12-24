@@ -31,3 +31,7 @@ encryption = "age"
   storeSecrets = {{ $storeSecrets }}
   installApps = {{ $installApps }}
   installCasks = {{ $installCasks }}
+
+  [diff]
+    command = "meld"
+    args = ["--diff", "{{ .Destination }}", "{{ .Target }}"]
