@@ -3,6 +3,9 @@
 
 source {{ joinPath .chezmoi.sourceDir "/dot_dotfiles/scripts/common.sh" | quote }}
 
+if [ ! -e "$HOME/.config/nvim/custom/init.lua" ]; then
+ echo "vim.wo.relativenumber = true" > "$HOME/.config/nvim/custom/init.lua"
+fi
 
 info "Installing vim plugins 👾"
 vim -E -s "+PlugInstall --sync" +visual +qall > /dev/null
