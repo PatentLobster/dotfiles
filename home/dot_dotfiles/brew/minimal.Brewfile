@@ -30,6 +30,7 @@ brew "wget"
 brew "zoxide"
 brew "lsd"
 brew "gum"
+brew "stern"
 
 # Casks
 cask "spectacle"
