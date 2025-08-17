@@ -1,0 +1,39 @@
+#!/usr/bin/env zsh
+# mka: create or update a zsh alias
+# Usage:
+#   mka ls 'ls -lah'
+#   mka gst git status
+#   mka ll               # uses the last command from history
+
+
+rc_file="${HOME}/.zprofile"
+
+usage() {
+  echo "Usage: $(basename "$0") <alias-name> [command ...]"
+  exit 1
+}
+
+# Require alias name
+[[ $# -ge 1 ]] || usage
+
+name="$1"
+shift
+
+# If no command provided, use last command from history
+if [[ $# -eq 0 ]]; then
+  cmd_str="$(fc -ln -1)"
+else
+  # Join the rest as the command string, preserving spacing between args
+  cmd_str="$*"
+fi
+
+# Escape single quotes so we can wrap the whole command in single quotes safely
+# Replace each ' with '\''  (close-quote, escaped quote, reopen-quote)
+cmd_escaped="${cmd_str//\'/\''\'\'}"
+
+line="alias $name='$cmd_escaped'"
+
+
+printf "\n%s\n" "$line" >> "$rc_file"
+
+. "${HOME}/.zprofile"

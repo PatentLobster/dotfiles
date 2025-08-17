@@ -5,7 +5,7 @@ function yank () {
         if [ "$*" != "" ]
 	then
 		$* | pbcopy
-		echo $(pbpaste)
+		pbpaste | cat
 	else
         	echo "Nothing to yank bro."
 	fi
