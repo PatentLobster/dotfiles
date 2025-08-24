@@ -2,13 +2,26 @@
 
 # yank
 function yank () {
-        if [ "$*" != "" ]
+if [ "$*" != "" ]
 	then
 		$* | pbcopy
 		pbpaste | cat
-	else
+else
         	echo "Nothing to yank bro."
-	fi
-
+fi
 }
 
+
+function gitar() {
+local tarname=""
+
+if [ "$1" != "" ]; then
+		tarname="$1.tar.gz"
+else
+		tarname="$(basename $(pwd)).tar.gz"
+fi
+
+git ls-files -z | xargs -0 tar -czf $tarname
+echo "created $tarname succesfully"
+
+}
