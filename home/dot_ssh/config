@@ -1,0 +1,13 @@
+Host *
+  SendEnv LC_PAPER
+  #RemoteCommand export SSH_SESSION_HOST="%n" && bash --rcfile <(echo -e "$LC_PAPER")
+  AddKeysToAgent yes
+  UseKeyChain yes
+  IdentityFile ~/.ssh/id_rsa
+
+
+host i-* *.aws *.qa 
+  ProxyCommand zsh -c "PATH=$PATH:/opt/homebrew/bin:/usr/local/bin && ~/.ssh/aws_ssh.sh %h %r %p"
+  StrictHostKeyChecking no
+  ServerAliveInterval 20
+  ServerAliveCountMax 180

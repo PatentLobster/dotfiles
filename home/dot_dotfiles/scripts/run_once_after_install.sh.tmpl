@@ -25,6 +25,11 @@ if [ ! -f "$HOME/.vprofile" ]; then
 touch "$HOME/.vprofile"
 fi
 
+if [ -d "$HOME/.aws" ]; then
+	if [ ! -f "$HOME/.aws/bin" ]; then
+		echo $(which aws) > "$HOME/.aws/bin"
+	fi
+fi
 
 info "Setting zsh as default shell"
 set +e
