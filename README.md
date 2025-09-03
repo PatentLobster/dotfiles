@@ -1,9 +1,12 @@
 # PatentLobster's dotfiles.
 #### Cross-platform dotfiles Powered by [Chezmoi](https://www.chezmoi.io/)
-![ci_badge](https://github.com/patentlobster/dotfiles/actions/workflows/ci.yaml/badge.svg)
-* ![merge conflict](https://img.shields.io/badge/merge%20conflicts-100%25-red)
-* ![issues](https://img.shields.io/badge/issues-works%20on%20my%20machine-green)
 
+-----
+![ci_badge](https://github.com/patentlobster/dotfiles/actions/workflows/ci.yaml/badge.svg)
+![zsh](https://img.shields.io/badge/shell-zsh-informational?logo=gnu-bash)
+![oh-my-zsh](https://img.shields.io/badge/oh--my--zsh-too%20many%20plugins-orange)
+![issues](https://img.shields.io/badge/issues-works%20on%20my%20machine-green)
+![dark mode](https://img.shields.io/badge/dark%20mode-forever-black)
 -----
 
 ![screenshot](.github/screenshot.png)
