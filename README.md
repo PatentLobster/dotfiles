@@ -1,6 +1,9 @@
 # PatentLobster's dotfiles.
 #### Cross-platform dotfiles Powered by [Chezmoi](https://www.chezmoi.io/)
 ![ci_badge](https://github.com/patentlobster/dotfiles/actions/workflows/ci.yaml/badge.svg)
+* ![merge conflict](https://img.shields.io/badge/merge%20conflicts-100%25-red)
+* ![issues](https://img.shields.io/badge/issues-works%20on%20my%20machine-green)
+
 -----
 
 ![screenshot](.github/screenshot.png)
