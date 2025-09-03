@@ -139,7 +139,7 @@ fi
 export DOTFILES_TEST=true
 echo 'Defaults env_keep += "DOTFILES_TEST"' | sudo tee /etc/sudoers.d/env_keep
 
-~/.repo/install.sh
+~/.repo/scripts/install.sh
 
 set +xeu
 source ~/.profile
@@ -175,7 +175,7 @@ for variant in "${variants[@]}"; do
     darwin)
       echo $(pwd)
       ls
-      ./install.sh
+      ./scripts/install.sh
       ;;
 
 
