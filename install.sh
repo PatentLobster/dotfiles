@@ -39,7 +39,6 @@ if command -v curl >/dev/null; then
     chezmoi_install_script="$(wget -qO- https://get.chezmoi.io)"
   else
     error "To install chezmoi, you must have curl or wget."
-  fi
 fi
 
 sh -c "${chezmoi_install_script}"  -- init --apply https://github.com/patentlobster/dotfiles.git --exclude=encrypted

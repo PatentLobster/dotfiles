@@ -17,6 +17,10 @@
 ### Installation command:
 
 ```
+sh -c "$(curl -fsLS https://itz.is/dot)"
+```
+or
+```
 sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init --apply https://github.com/patentlobster/dotfiles.git --exclude=encrypted
 ```
 -----
