@@ -6,6 +6,7 @@ tap "homebrew/bundle"
 
 # Base
 brew "tmux"
+brew "nvim"
 brew "go"
 brew "age"
 brew "pv"
@@ -30,7 +31,12 @@ brew "wget"
 brew "zoxide"
 brew "lsd"
 brew "gum"
+
+brew "kubectl"
+brew "kubens"
+brew "kubectx"
 brew "stern"
+
 
 # Casks
 cask "spectacle"

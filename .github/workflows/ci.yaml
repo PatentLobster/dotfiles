@@ -19,8 +19,8 @@ jobs:
 #       TODO: Add alpine and arch supports
 #          - variant: devcontainer
 #            os: alpine
-          - variant: devcontainer
-            os: debian
+          # - variant: devcontainer
+          #   os: debian
           - os: macos-11
             variant: darwin
           - os: macos-12

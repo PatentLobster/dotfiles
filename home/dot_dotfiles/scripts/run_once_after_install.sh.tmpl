@@ -8,7 +8,7 @@ if [ ! -e "$HOME/.config/nvim/custom/init.lua" ]; then
 fi
 
 info "Installing vim plugins 👾"
-vim -E -s "+PlugInstall --sync" +visual +qall > /dev/null
+vim -E -s "+MasonInstallAll" +visual +qall > /dev/null
 
 {{ if (.storeSecrets) }}
 if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
