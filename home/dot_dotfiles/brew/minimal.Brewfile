@@ -31,13 +31,16 @@ brew "wget"
 brew "zoxide"
 brew "lsd"
 brew "gum"
+brew "ripgrep"
 
 brew "kubectl"
 brew "kubens"
 brew "kubectx"
 brew "stern"
 
+brew "1password-cli"
+
 
 # Casks
-cask "spectacle"
+cask "rectangle"
 cask "alfred"
