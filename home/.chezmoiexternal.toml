@@ -38,9 +38,4 @@
 [".dotfiles/vim/plugins/Vundle.vim"]
 	type = "git-repo"
 	url = "https://github.com/gmarik/Vundle.vim.git"
-    refreshPeriod = "168h"
-
-[".config/nvim"]
-    type = "git-repo"
-    url = "https://github.com/NvChad/starter"
-    refreshPeriod = "168h"
+  refreshPeriod = "168h"
