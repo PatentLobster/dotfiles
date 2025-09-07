@@ -8,6 +8,7 @@
 ![zsh](https://img.shields.io/badge/shell-zsh-informational?logo=gnu-bash)
 ![oh-my-zsh](https://img.shields.io/badge/oh--my--zsh-too%20many%20plugins-orange)
 ![issues](https://img.shields.io/badge/issues-works%20on%20my%20machine-green)
+![nvchad](https://img.shields.io/badge/nv-chad-purple?logo=vim)
 ![dark mode](https://img.shields.io/badge/dark%20mode-forever-black)
 -----
 

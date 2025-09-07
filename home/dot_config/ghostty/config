@@ -2,12 +2,16 @@
 # Credit to https://github.com/nicknisi/ 
 # theme = dark:catppuccin-macchiato,light:catppuccin-latte
 theme = dark:tokyonight_night,light:tokyonight-day
-background-blur-radius = 30
 # background = #1c2021
 # background = #0B1215
-background-opacity = 0.75
-# background-blur-radius = 40
+background-opacity = 0.85
+background-blur-radius = 40
 bold-is-bright = true
+
+#custom-shader="./shaders/tft.glsl"
+#custom-shader-animation=always
+
+link-url = true
 
 # window settings
 #macos-titlebar-style = hidden
