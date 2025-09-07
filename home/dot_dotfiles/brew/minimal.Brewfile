@@ -44,3 +44,5 @@ brew "1password-cli"
 # Casks
 cask "rectangle"
 cask "alfred"
+cask "ghostty"
+cask "iterm2"

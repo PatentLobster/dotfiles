@@ -4,10 +4,12 @@ alias zprof="zprofile"
 alias zconfig="zshconfig"
 alias zshconf="zshconfig"
 alias zconf="zshconfig"
-alias vimconfig="e $DOTFILES/vim/vimrc"
+alias vimconfig="e ~/.config/nvim/"
 alias vimconf="vimconfig"
 alias vconfig="vimconfig"
 alias vconf="vimconfig"
+alias vsync="cp -r /Users/itziksokolovpaz/.config/nvim $HOME/.local/share/chezmoi/home/dot_config/"
+
 
 alias y="yank"
 alias tinker="vim -c 'set syntax=php'"
@@ -37,11 +39,10 @@ alias cd="z"
 # Git
 alias gcb='git copy-branch-name'
 
-# Brew
 alias bi="brew install"
 
+alias chez="chezmoi"
 
-# Wicked
 alias ma="tldr"
 alias ls="lsd"
 alias la="lsd -La"
