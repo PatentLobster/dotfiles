@@ -43,10 +43,10 @@ install_brew
 info "Installing brew packages 📦"
 
 {{ if (.installApps) }}
-    brew bundle --file=$(chez source-path)/dot_dotfiles/brew/minimal.Brewfile
+    brew bundle --file={{ joinPath .chezmoi.sourceDir "/dot_dotfiles/brew/minimal.Brewfile" | quote }}
 {{ end }}
 {{ if (.installCasks) }}
-    brew bundle --file=$(chez source-path)/dot_dotfiles/brew/casks.Brewfile
+    brew bundle --file={{ joinPath .chezmoi.sourceDir "/dot_dotfiles/brew/casks.Brewfile" | quote }}
 {{ end }}
 
 {{ end }}

@@ -1,8 +1,8 @@
 # Taps
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
-tap "homebrew/bundle"
+# tap "homebrew/cask"
+# tap "homebrew/cask-fonts"
+# tap "homebrew/cask-versions"
+# tap "homebrew/bundle"
 
 # Base
 brew "tmux"
@@ -38,10 +38,11 @@ brew "kubens"
 brew "kubectx"
 brew "stern"
 
-brew "1password-cli"
+
 
 
 # Casks
+cask "1password-cli"
 cask "rectangle"
 cask "alfred"
 cask "ghostty"
