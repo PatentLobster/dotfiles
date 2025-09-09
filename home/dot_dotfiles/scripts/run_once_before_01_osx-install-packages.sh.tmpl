@@ -32,9 +32,39 @@ install_brew() {
 }
 
 # macOS-specific code
-
 lobster
 install_brew
+
+
+info "Updating hot corners."
+# Hot corners
+# Possible values:
+#  0: no-op
+#  2: Mission Control
+#  3: Show application windows
+#  4: Desktop
+#  5: Start screen saver
+#  6: Disable screen saver
+#  7: Dashboard
+# 10: Put display to sleep
+# 11: Launchpad
+# 12: Notification Center
+# 13: Lock Screen
+# Top left screen corner → Mission Control
+defaults write com.apple.dock wvous-tl-corner -int 5
+defaults write com.apple.dock wvous-tl-modifier -int 0
+# Top right screen corner → Desktop
+defaults write com.apple.dock wvous-tr-corner -int 0
+defaults write com.apple.dock wvous-tr-modifier -int 0
+# Bottom right screen corner → Start screen saver
+defaults write com.apple.dock wvous-br-corner -int 11
+defaults write com.apple.dock wvous-br-modifier -int 0
+# Bottom left screen corner → Start screen saver
+defaults write com.apple.dock wvous-bl-corner -int 0
+defaults write com.apple.dock wvous-bl-modifier -int 0
+
+info "Disabling input source language indicator..."
+defaults write kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled 0
 
 {{ $codespaces := env "REMOTE_CONTAINERS" | not | not }}
 {{ if not $codespaces }}
@@ -48,5 +78,35 @@ info "Installing brew packages 📦"
 {{ if (.installCasks) }}
     brew bundle --file={{ joinPath .chezmoi.sourceDir "/dot_dotfiles/brew/casks.Brewfile" | quote }}
 {{ end }}
+
+###############################################################################
+# Kill affected applications                                                  #
+###############################################################################
+
+info "Restarting OS X GUI"
+for app in "Activity Monitor" \
+	"Address Book" \
+	"Calendar" \
+	"cfprefsd" \
+	"Contacts" \
+	"Dock" \
+	"Finder" \
+	"Google Chrome Canary" \
+	"Google Chrome" \
+	"Mail" \
+	"Messages" \
+	"Opera" \
+	"Photos" \
+	"Safari" \
+	"SizeUp" \
+	"Spectacle" \
+	"SystemUIServer" \
+	"Terminal" \
+	"Transmission" \
+	"Tweetbot" \
+	"Twitter" \
+	"iCal"; do
+	killall "${app}" &> /dev/null
+done
 
 {{ end }}
