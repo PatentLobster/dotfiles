@@ -34,16 +34,21 @@ brew "gum"
 brew "ripgrep"
 
 brew "kubectl"
-brew "kubens"
 brew "kubectx"
 brew "stern"
 
-
-
-
 # Casks
+cask "1password"
 cask "1password-cli"
+
+cask "karabiner-elements"
 cask "rectangle"
 cask "alfred"
+
 cask "ghostty"
 cask "iterm2"
+
+cask "github"
+cask "sublime-text"
+
+cask "docker"
