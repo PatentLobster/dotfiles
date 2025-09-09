@@ -1,0 +1,15 @@
+#!/bin/bash
+{{ if eq .chezmoi.os "darwin" }}
+# run_onchange_configure-macos.sh
+# This script configures various macOS settings
+# The run_onchange_ prefix makes chezmoi run this when the script changes
+
+{{ if (.installApps) }}
+    brew bundle --file={{ joinPath .chezmoi.sourceDir "/dot_dotfiles/brew/minimal.Brewfile" | quote }}
+{{ end }}
+{{ if (.installCasks) }}
+    brew bundle --file={{ joinPath .chezmoi.sourceDir "/dot_dotfiles/brew/casks.Brewfile" | quote }}
+{{ end }}
+
+source ~/.zshrc
+{{ end }}

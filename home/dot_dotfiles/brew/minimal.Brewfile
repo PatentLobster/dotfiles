@@ -49,6 +49,8 @@ cask "ghostty"
 cask "iterm2"
 
 cask "github"
+
 cask "sublime-text"
+cask "obsidian"
 
 cask "docker"
