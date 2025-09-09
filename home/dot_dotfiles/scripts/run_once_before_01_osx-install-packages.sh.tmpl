@@ -79,34 +79,4 @@ info "Installing brew packages 📦"
     brew bundle --file={{ joinPath .chezmoi.sourceDir "/dot_dotfiles/brew/casks.Brewfile" | quote }}
 {{ end }}
 
-###############################################################################
-# Kill affected applications                                                  #
-###############################################################################
-
-info "Restarting OS X GUI"
-for app in "Activity Monitor" \
-	"Address Book" \
-	"Calendar" \
-	"cfprefsd" \
-	"Contacts" \
-	"Dock" \
-	"Finder" \
-	"Google Chrome Canary" \
-	"Google Chrome" \
-	"Mail" \
-	"Messages" \
-	"Opera" \
-	"Photos" \
-	"Safari" \
-	"SizeUp" \
-	"Spectacle" \
-	"SystemUIServer" \
-	"Terminal" \
-	"Transmission" \
-	"Tweetbot" \
-	"Twitter" \
-	"iCal"; do
-	killall "${app}" &> /dev/null
-done
-
 {{ end }}
