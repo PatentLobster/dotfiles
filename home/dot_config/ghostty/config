@@ -4,7 +4,7 @@
 theme = dark:tokyonight_night,light:tokyonight-day
 # background = #1c2021
 # background = #0B1215
-background-opacity = 0.85
+background-opacity = 0.95
 background-blur-radius = 40
 bold-is-bright = true
 
