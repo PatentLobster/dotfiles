@@ -36,6 +36,9 @@ brew "ripgrep"
 brew "kubectl"
 brew "kubectx"
 brew "stern"
+brew "k9s"
+
+brew "terraform"
 
 # Casks
 cask "1password"
