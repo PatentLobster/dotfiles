@@ -56,4 +56,4 @@ cask "github"
 cask "sublime-text"
 cask "obsidian"
 
-cask "docker"
+cask "spotify"
