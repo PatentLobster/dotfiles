@@ -45,6 +45,7 @@ cask "1password"
 cask "1password-cli"
 
 cask "karabiner-elements"
+cask "bartender"
 cask "rectangle"
 cask "alfred"
 
