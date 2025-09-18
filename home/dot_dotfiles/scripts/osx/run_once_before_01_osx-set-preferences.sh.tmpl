@@ -1,39 +1,9 @@
 #!/bin/bash
 {{ if eq .chezmoi.os "darwin" }}
-
-
-
 source {{ joinPath .chezmoi.sourceDir "/dot_dotfiles/scripts/common.sh" | quote }}
-install_brew() {
-    if test ! $(which brew); then
-        info "Installing brew 🍺"
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        {{ if ne .chezmoi.os "darwin" }}
-            eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-        {{ end }}
-    fi
-
-    if [ $(which brew) ]; then
-      if [ ! $(which gum) ]; then
-          info "Installing gum 🔮"
-          brew install gum
-      fi
-      {{ if eq .chezmoi.os "linux" }}
-        {{ if eq .chezmoi.osRelease.id "amzn" }}
-          {{      if eq .chezmoi.arch "amd64" }}
-            wget "https://github.com/charmbracelet/gum/releases/download/$(get_latest_release "charmbracelet/gum")/gum_$(get_latest_release "charmbracelet/gum" | sed "s/v//g")_linux_amd64.rpm" -O /tmp/gum.rpm
-          {{      else }}
-            wget "https://github.com/charmbracelet/gum/releases/download/$(get_latest_release "charmbracelet/gum")/gum_$(get_latest_release "charmbracelet/gum" | sed "s/v//g")_linux_arm64.rpm" -O /tmp/gum.rpm
-          {{      end }}
-          rpm -i /tmp/gum.rpm
-        {{ end }}
-      {{ end }}
-    fi
-}
 
 # macOS-specific code
 lobster
-install_brew
 
 
 # Avoid creating .DS_Store files on network or USB volumes
@@ -126,23 +96,38 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 info "Disabling input source language indicator 💩"
 defaults write kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled 0
 
-{{ $codespaces := env "REMOTE_CONTAINERS" | not | not }}
-{{ if not $codespaces }}
-  set +e
-{{ end }}
-info "Installing brew packages 📦"
-
-{{ if (.installApps) }}
-    brew bundle --file={{ joinPath .chezmoi.sourceDir "/dot_dotfiles/brew/minimal.Brewfile" | quote }}
-{{ end }}
-{{ if (.installCasks) }}
-    brew bundle --file={{ joinPath .chezmoi.sourceDir "/dot_dotfiles/brew/casks.Brewfile" | quote }}
-{{ end }}
-
-
-
-
 info "Please run the following snippet to reload OS X settings."
+
+
+set -euo pipefail
+
+SUDO_PAM="/etc/pam.d/sudo"
+LINE="auth       sufficient     pam_tid.so"
+
+# Only proceed if the file exists
+if [[ ! -f "$SUDO_PAM" ]]; then
+  info "Skipping: $SUDO_PAM not found."
+  exit 0
+fi
+
+# If the line is already present, we're done
+if sudo grep -qE '^[[:space:]]*auth[[:space:]]+sufficient[[:space:]]+pam_tid\.so' "$SUDO_PAM"; then
+  info "Touch ID for sudo already enabled."
+  exit 0
+fi
+
+# Backup once with timestamp
+ts="$(date +%Y%m%d%H%M%S)"
+info "Backing up $SUDO_PAM to $SUDO_PAM.backup.$ts"
+sudo cp "$SUDO_PAM" "$SUDO_PAM.backup.$ts"
+
+# Insert the line on the second line (after the header comment), macOS sed syntax
+# This places it early, which is where Apple documents typically show it.
+sudo sed -i '' '2i\
+'"$LINE"'
+' "$SUDO_PAM"
+
+success "Added '$LINE' to $SUDO_PAM"
 echo 'for app in "Activity Monitor" \
     "Address Book" \
     "Calendar" \
