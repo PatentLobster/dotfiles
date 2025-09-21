@@ -32,6 +32,7 @@ brew "zoxide"
 brew "lsd"
 brew "gum"
 brew "ripgrep"
+brew "gh"
 
 brew "kubectl"
 brew "kubectx"
