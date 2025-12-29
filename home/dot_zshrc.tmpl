@@ -14,13 +14,14 @@ DISABLE_UPDATE_PROMPT="true"
 {{ if eq .chezmoi.os "darwin" }}
 plugins=(macos git git-trim zsh-autosuggestions zsh-syntax-highlighting fzf-tab zsh-navigation-tools urltools systemadmin extract golang fancy-ctrl-z encode64 vi-mode artisan)
 export PATH=/opt/homebrew/bin:$HOME/.local/bin:$DOTFILES/bin:$PATH
+export PATH="$PATH:/Users/I/Library/Application Support/JetBrains/Toolbox/scripts"
 export FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
 {{ else if eq .chezmoi.os "linux" }}
 plugins=(git git-trim zsh-autosuggestions zsh-syntax-highlighting fzf-tab zsh-navigation-tools urltools systemadmin extract golang fancy-ctrl-z encode64 vi-mode artisan)
 {{ if not (eq .chezmoi.arch "arm64") }}
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{ end }}
-export PATH=$HOME/bin:/usr/local/bin:$DOTFILES/bin:$HOME/.local/bin:$PATH
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 {{ end }}
 
 source $ZSH/oh-my-zsh.sh

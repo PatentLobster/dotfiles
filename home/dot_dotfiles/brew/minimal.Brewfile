@@ -38,8 +38,10 @@ brew "kubectl"
 brew "kubectx"
 brew "stern"
 brew "k9s"
+brew "krew"
 
 brew "terraform"
+brew "talosctl"
 
 # Casks
 cask "1password"
