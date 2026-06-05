@@ -8,6 +8,20 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
 
+-- Run the current Go file in a terminal split
+map("n", "<leader>gr", function()
+  vim.cmd("write")            -- save first
+  vim.cmd("terminal go run " .. vim.fn.expand("%"))
+end, { desc = "Go run current file" })
+
+-- Build the package in the current directory
+map("n", "<leader>gb", function()
+  vim.cmd("write")
+  vim.cmd("terminal go build")
+end, { desc = "Go build package" })
+
+
+-- Copilot
 map("i", "<C-l>", function()
   require("copilot.suggestion").accept()
 end, { desc = "Copilot accept" })
