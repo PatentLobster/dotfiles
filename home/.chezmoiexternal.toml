@@ -4,7 +4,7 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
-    filterDirs = "cache"
+    #filterDirs = "cache"
 
 [".dotfiles/zsh/custom/plugins/zsh-syntax-highlighting"]
     type = "archive"
@@ -15,7 +15,7 @@
 [".dotfiles/zsh/custom/plugins/fzf-tab"]
 	type = "git-repo"
 	url = "https://github.com/Aloxaf/fzf-tab"
-    refreshPeriod = "168h"
+  refreshPeriod = "168h"
 [".dotfiles/zsh/custom/plugins/zsh-autosuggestions"]
 	type = "git-repo"
 	url = "https://github.com/zsh-users/zsh-autosuggestions/"
@@ -23,11 +23,11 @@
 [".dotfiles/zsh/custom/plugins/git-trim"]
 	type = "git-repo"
 	url = "https://github.com/jasonmccreary/git-trim"
-    refreshPeriod = "168h"
+  refreshPeriod = "168h"
 [".dotfiles/zsh/custom/plugins/artisan"]
 	type = "git-repo"
 	url = "https://github.com/jessarcher/zsh-artisan"
-    refreshPeriod = "168h"
+  refreshPeriod = "168h"
 
 [".dotfiles/tmux/plugins/tmux"]
     type = "git-repo"

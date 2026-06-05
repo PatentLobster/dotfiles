@@ -33,14 +33,16 @@ brew "lsd"
 brew "gum"
 brew "ripgrep"
 brew "gh"
+brew "chezmoi"
 
 brew "kubectl"
 brew "kubectx"
 brew "stern"
 brew "k9s"
 brew "krew"
+brew "argocd"
 
-brew "terraform"
+brew "tfenv"
 brew "talosctl"
 
 # Casks
@@ -56,6 +58,7 @@ cask "ghostty"
 cask "iterm2"
 
 cask "github"
+cask "claude-code"
 
 cask "sublime-text"
 cask "obsidian"
