@@ -15,9 +15,9 @@
 #set -ga terminal-overrides "*:kUP3=\e[1;9A,*:kDN3=\e[1;9B,*:kRIT3=\e[1;9C,*:kLFT3=\e[1;9D"
 
 
-bind c new-window -c "#{pane_current_path}"
-bind '"' split-window -c "#{pane_current_path}"
-bind % split-window -h -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}" #!important
+bind '"' split-window -c "#{pane_current_path}" #!important
+bind % split-window -h -c "#{pane_current_path}" #!important
 
 
 # -- windows & pane creation ---------------------------------------------------
