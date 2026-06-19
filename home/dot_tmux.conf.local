@@ -158,7 +158,8 @@ tmux_conf_theme_terminal_title="#h ❐ #S ● #I #W"
 tmux_conf_theme_window_status_fg="$tmux_conf_theme_colour_3"
 tmux_conf_theme_window_status_bg="$tmux_conf_theme_colour_1"
 tmux_conf_theme_window_status_attr="none"
-tmux_conf_theme_window_status_format="#I #W"
+tmux_conf_theme_window_status_format="#{?@claude_waiting,#[fg=$tmux_conf_theme_colour_10]● #[default],}#I #W"
+#tmux_conf_theme_window_status_format="#I #W"
 #tmux_conf_theme_window_status_format="#{circled_window_index} #W"
 #tmux_conf_theme_window_status_format="#I #W#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}"
 
@@ -175,7 +176,8 @@ tmux_conf_theme_window_status_format="#I #W"
 tmux_conf_theme_window_status_current_fg="$tmux_conf_theme_colour_1"
 tmux_conf_theme_window_status_current_bg="$tmux_conf_theme_colour_4"
 tmux_conf_theme_window_status_current_attr="bold"
-tmux_conf_theme_window_status_current_format="#I #W"
+tmux_conf_theme_window_status_current_format="#{?@claude_waiting,#[fg=$tmux_conf_theme_colour_10]● #[default],}#I #W"
+#tmux_conf_theme_window_status_current_format="#I #W"
 #tmux_conf_theme_window_status_current_format="#{circled_window_index} #W"
 #tmux_conf_theme_window_status_current_format="#I #W#{?window_zoomed_flag,🔍,}"
 
@@ -232,7 +234,7 @@ tmux_conf_theme_right_separator_sub="|"
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_status_left=" ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} "
-tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R | #{username}#{root} | #{hostname} "
+tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , #($HOME/.claude/hooks/agent-status.sh) , %R | #{username}#{root} | #{hostname} "
 
 # status left style
 tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
@@ -381,6 +383,22 @@ tmux_conf_update_plugins_on_reload=true
 #set -g @plugin 'tmux-plugins/tmux-resurrect'
 #set -g @plugin 'tmux-plugins/tmux-continuum'
 #set -g @continuum-restore 'on'
+
+# Claude Code agent status is handled by self-contained scripts (no plugin):
+#   ~/.claude/hooks/agent-state.sh   records per-pane state (via CC hooks)
+#   ~/.claude/hooks/agent-status.sh  prints the plain summary in status-right
+# (we dropped samleeney/tmux-agent-status: it force-spawns a sidebar + daemon.)
+
+# which-key style popup menu of bindings (great for discovery).
+#   - prefix + Space      opens it (overrides oh-my-tmux's next-layout;
+#                         next-layout is still reachable from the menu)
+#   - Ctrl+Space          opens the same menu with NO prefix (easy for newcomers)
+set -g @plugin 'alexwforsythe/tmux-which-key'
+set -g @wk_cfg_key_prefix_table 'Space'
+# the plugin only binds the prefix table; bind a no-prefix key ourselves.
+# '#!important' makes oh-my-tmux re-apply this AFTER plugins load (so the
+# 'show-wk-menu-root' command the plugin defines already exists).
+bind -N 'which-key menu' -n C-Space show-wk-menu-root  #!important
 
 
 # -- custom variables ----------------------------------------------------------

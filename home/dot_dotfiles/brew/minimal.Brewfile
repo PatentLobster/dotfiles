@@ -6,6 +6,8 @@
 
 # Base
 brew "tmux"
+brew "bash"      # modern bash for tmux-agent-status (macOS ships 3.2)
+brew "python"    # for tmux-which-key YAML menu rebuilds (prebuilt menu works without it)
 brew "nvim"
 brew "go"
 brew "age"

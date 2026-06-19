@@ -1,0 +1,45 @@
+{
+  "model": "opus[1m]",
+  "enabledPlugins": {
+    "claude-mem@thedotmack": true
+  },
+  "alwaysThinkingEnabled": false,
+  "voice": {
+    "enabled": false,
+    "mode": "hold"
+  },
+  "voiceEnabled": false,
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          { "type": "command", "command": "~/.claude/hooks/agent-state.sh working" },
+          { "type": "command", "command": "~/.claude/hooks/tmux-flag.sh busy" }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          { "type": "command", "command": "~/.claude/hooks/agent-state.sh working" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "~/.claude/hooks/agent-state.sh done" },
+          { "type": "command", "command": "~/.claude/hooks/tmux-flag.sh ready" }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          { "type": "command", "command": "~/.claude/hooks/agent-state.sh waiting" },
+          { "type": "command", "command": "~/.claude/hooks/tmux-flag.sh waiting" }
+        ]
+      }
+    ]
+  }
+}
