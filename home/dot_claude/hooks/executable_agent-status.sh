@@ -38,13 +38,39 @@ done
 total=$((working+waiting+done))
 [ "$total" -eq 0 ] && exit 0
 
-parts=""
-[ "$working" -gt 0 ] && parts="${parts}⚡ ${working} working  "
-[ "$waiting" -gt 0 ] && parts="${parts}⏸ ${waiting} waiting  "
-if [ -z "$parts" ]; then
-  printf '✓ All agents ready'
-else
-  # trim trailing spaces
-  printf '%s' "${parts%"${parts##*[![:space:]]}"}"
+# Rainbow ramp across the xterm-256 color cube (red->orange->yellow->green
+# ->cyan->blue->violet->magenta). Each refresh shifts the starting hue so the
+# colors visibly "flow" (tmux re-runs this every status-interval).
+RAINBOW=(196 202 208 214 220 226 190 154 118 82 46 47 48 49 51 45 39 33 27 21 57 93 129 165 201 200 199 198)
+NCOL=${#RAINBOW[@]}
+
+# phase advances ~1 step per second so the rainbow animates
+phase=$(( $(date +%s) % NCOL ))
+
+# rainbow STRING -> per-character colored output, ending with a reset so it
+# does not bleed into the next status section.
+rainbow() {
+  local s="$1" i ch idx out=""
+  for (( i = 0; i < ${#s}; i++ )); do
+    ch="${s:i:1}"
+    idx=$(( (i + phase) % NCOL ))
+    out="${out}#[fg=colour${RAINBOW[idx]}]${ch}"
+  done
+  printf '%s#[default]' "$out"
+}
+
+out=""
+if [ "$working" -gt 0 ]; then
+  out="$(rainbow "⚡ ${working} working")"
 fi
+if [ "$waiting" -gt 0 ]; then
+  [ -n "$out" ] && out="${out}  "
+  # orange, readable on the dark status bg, with a #[default] reset after
+  out="${out}#[fg=colour214]⏸ ${waiting} waiting#[default]"
+fi
+if [ -z "$out" ]; then
+  out='✓ All agents ready'           # plain
+fi
+
+printf '%s' "$out"
 exit 0
