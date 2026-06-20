@@ -8,12 +8,10 @@
 {{- $email        := "37775846+PatentLobster@users.noreply.github.com" -}}
 {{- $storeSecrets := false -}}
 {{- $installApps  := true -}}
-{{- $installCasks := false -}}
 {{- if not $codespaces -}}
   {{- $email        = promptStringOnce . "email" "Email for .gitconfig" -}}
   {{- $storeSecrets = promptBoolOnce . "storeSecrets" "Store secrets on this machine" -}}
   {{- $installApps  = promptBoolOnce . "installApps" "Install applications" -}}
-  {{- $installCasks = promptBoolOnce . "installCasks" "Install casks" -}}
 {{- end -}}
 
 
@@ -30,6 +28,5 @@ encryption = "age"
   email = {{ $email | quote }}
   storeSecrets = {{ $storeSecrets }}
   installApps = {{ $installApps }}
-  installCasks = {{ $installCasks }}
 
 

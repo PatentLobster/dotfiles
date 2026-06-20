@@ -8,7 +8,7 @@ log_color() {
   color_code="$1"
   shift
 
-  printf "\033[${color_code}m%s\033[0m\n" "$*" >&2
+  printf '\033[%sm%s\033[0m\n' "${color_code}" "$*" >&2
 }
 
 log_red() {
@@ -47,20 +47,20 @@ if ! chezmoi="$(command -v chezmoi)"; then
   unset chezmoi_install_script bin_dir
 fi
 
-# POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
-# shellcheck disable=SC2312
-script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)/../"
+# Resolve the repo root (parent of this script's dir). Using $0's path directly
+# avoids the broken stdin case (`sh < install.sh`) where command -v resolves to sh.
+script_dir="$(cd -P -- "$(dirname -- "$0")/.." && pwd -P)"
 
 set -- init --source="${script_dir}" --verbose=false --exclude=encrypted --no-tty
 
 if [ -n "${DOTFILES_ONE_SHOT-}" ]; then
-  set -- "$@" --one-shot --exclude=encrypted
+  set -- "$@" --one-shot
 else
-  set -- "$@" --apply --exclude=encrypted
+  set -- "$@" --apply
 fi
 
 if [ -n "${DOTFILES_DEBUG-}" ]; then
-  set -- "$@" --debug --exclude=encrypted
+  set -- "$@" --debug
 fi
 
 log_task "Running 'chezmoi $*'"

@@ -31,6 +31,13 @@ if [ -d "$HOME/.aws" ]; then
 	fi
 fi
 
+{{ if eq .chezmoi.os "darwin" }}
+info "Opening apps for first-time setup 🚀"
+for app in "Alfred 5" "LaunchOS" "1Password" "Karabiner-Elements" "Shottr" "Hidden Bar" "Rectangle"; do
+	open -a "$app" >/dev/null 2>&1 || info "Could not open '$app' (not installed?)"
+done
+{{ end }}
+
 info "Setting zsh as default shell"
 set +e
 {{ if eq .chezmoi.os "darwin" }}

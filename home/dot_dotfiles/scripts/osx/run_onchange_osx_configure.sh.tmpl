@@ -8,9 +8,6 @@
 {{ if (.installApps) }}
     brew bundle --file={{ joinPath .chezmoi.sourceDir "/dot_dotfiles/brew/minimal.Brewfile" | quote }}
 {{ end }}
-{{ if (.installCasks) }}
-    brew bundle --file={{ joinPath .chezmoi.sourceDir "/dot_dotfiles/brew/casks.Brewfile" | quote }}
-{{ end }}
 
 
 {{ end }}

@@ -52,9 +52,10 @@ cask "1password"
 cask "1password-cli"
 
 cask "karabiner-elements"
-cask "bartender"
 cask "rectangle"
 cask "alfred"
+cask "launchos"
+cask "hiddenbar"
 
 cask "ghostty"
 cask "iterm2"
@@ -66,3 +67,22 @@ cask "sublime-text"
 cask "obsidian"
 
 cask "spotify"
+
+# Media / misc
+cask "vlc"
+cask "transmit"
+cask "gimp"
+cask "shottr"
+
+# Databases
+cask "tableplus"
+
+# Security
+cask "burp-suite"
+
+# Fonts
+cask "font-lato"
+cask "font-open-sans"
+cask "font-roboto"
+cask "font-source-code-pro-for-powerline"
+cask "font-source-code-pro"

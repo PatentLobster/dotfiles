@@ -39,3 +39,15 @@
 	type = "git-repo"
 	url = "https://github.com/gmarik/Vundle.vim.git"
   refreshPeriod = "168h"
+
+# Global Claude Code skills pulled from anthropics/skills.
+# include patterns match the FULL archive path (before stripComponents); the leading
+# "*/" matches the top-level "skills-main/" dir. stripComponents=2 drops "skills-main/skills/"
+# so each skill lands at ~/.claude/skills/<name>/.
+# `exact` is intentionally omitted so locally-created skills under ~/.claude/skills are left untouched.
+[".claude/skills"]
+    type = "archive"
+    url = "https://github.com/anthropics/skills/archive/refs/heads/main.tar.gz"
+    stripComponents = 2
+    refreshPeriod = "168h"
+    include = ["*/skills/skill-creator/**", "*/skills/claude-api/**"]
