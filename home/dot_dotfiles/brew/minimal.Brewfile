@@ -71,7 +71,7 @@ cask "spotify"
 # Media / misc
 cask "vlc"
 cask "transmit"
-cask "gimp"
+# cask "gimp"
 cask "shottr"
 
 # Databases
