@@ -239,7 +239,7 @@ tmux_conf_theme_status_left=" ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d
 # this after plugins/reload, overriding the default 'status-interval 10'.
 set -g status-interval 1  #!important
 
-tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , #($HOME/.claude/hooks/agent-status.sh) , %R | #{username}#{root} | #{hostname} "
+tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , #($HOME/.dotfiles/scripts/spotify-status.sh) , #($HOME/.claude/hooks/agent-status.sh) , %R | #{username}#{root} | #{hostname} "
 
 # status left style
 tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"

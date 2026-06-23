@@ -43,6 +43,7 @@ brew "stern"
 brew "k9s"
 brew "krew"
 brew "argocd"
+brew "conftest"
 
 brew "tfenv"
 brew "talosctl"
