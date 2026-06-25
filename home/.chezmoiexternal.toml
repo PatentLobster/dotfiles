@@ -51,3 +51,21 @@
     stripComponents = 2
     refreshPeriod = "168h"
     include = ["*/skills/skill-creator/**", "*/skills/claude-api/**"]
+
+# Extra skills pulled from mattpocock/skills. These live one level deeper in
+# the archive (skills-main/skills/productivity/<name>/), so each is mapped onto
+# its own target dir under ~/.claude/skills/ with stripComponents=4 dropping the
+# "skills-main/skills/productivity/<name>/" prefix.
+[".claude/skills/grill-me"]
+    type = "archive"
+    url = "https://github.com/mattpocock/skills/archive/refs/heads/main.tar.gz"
+    stripComponents = 4
+    refreshPeriod = "168h"
+    include = ["*/skills/productivity/grill-me/**"]
+
+[".claude/skills/grilling"]
+    type = "archive"
+    url = "https://github.com/mattpocock/skills/archive/refs/heads/main.tar.gz"
+    stripComponents = 4
+    refreshPeriod = "168h"
+    include = ["*/skills/productivity/grilling/**"]
