@@ -69,3 +69,41 @@
     stripComponents = 4
     refreshPeriod = "168h"
     include = ["*/skills/productivity/grilling/**"]
+
+# Obsidian skills from kepano/obsidian-skills pinned to a known-good commit.
+# The archive layout is obsidian-skills-<sha>/skills/<name>/, so stripComponents=3
+# drops the archive root, "skills", and the skill directory name for each target.
+[".claude/skills/defuddle"]
+    type = "archive"
+    url = "https://github.com/kepano/obsidian-skills/archive/a1dc48e68138490d522c04cbf5822214c6eb1202.tar.gz"
+    stripComponents = 3
+    refreshPeriod = "168h"
+    include = ["*/skills/defuddle/**"]
+
+[".claude/skills/json-canvas"]
+    type = "archive"
+    url = "https://github.com/kepano/obsidian-skills/archive/a1dc48e68138490d522c04cbf5822214c6eb1202.tar.gz"
+    stripComponents = 3
+    refreshPeriod = "168h"
+    include = ["*/skills/json-canvas/**"]
+
+[".claude/skills/obsidian-bases"]
+    type = "archive"
+    url = "https://github.com/kepano/obsidian-skills/archive/a1dc48e68138490d522c04cbf5822214c6eb1202.tar.gz"
+    stripComponents = 3
+    refreshPeriod = "168h"
+    include = ["*/skills/obsidian-bases/**"]
+
+[".claude/skills/obsidian-cli"]
+    type = "archive"
+    url = "https://github.com/kepano/obsidian-skills/archive/a1dc48e68138490d522c04cbf5822214c6eb1202.tar.gz"
+    stripComponents = 3
+    refreshPeriod = "168h"
+    include = ["*/skills/obsidian-cli/**"]
+
+[".claude/skills/obsidian-markdown"]
+    type = "archive"
+    url = "https://github.com/kepano/obsidian-skills/archive/a1dc48e68138490d522c04cbf5822214c6eb1202.tar.gz"
+    stripComponents = 3
+    refreshPeriod = "168h"
+    include = ["*/skills/obsidian-markdown/**"]
