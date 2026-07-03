@@ -52,23 +52,73 @@
     refreshPeriod = "168h"
     include = ["*/skills/skill-creator/**", "*/skills/claude-api/**"]
 
-# Extra skills pulled from mattpocock/skills. These live one level deeper in
-# the archive (skills-main/skills/productivity/<name>/), so each is mapped onto
-# its own target dir under ~/.claude/skills/ with stripComponents=4 dropping the
-# "skills-main/skills/productivity/<name>/" prefix.
+# Extra skills pulled from mattpocock/skills, pinned to a known-good commit.
+# The archive layout is skills-<sha>/skills/<category>/<name>/, so stripComponents=4
+# drops the archive root, "skills", the category, and the skill dir name, landing
+# each skill's contents directly at ~/.claude/skills/<name>/.
+# Renovate keeps the pinned SHA current (see renovate.json customManager).
 [".claude/skills/grill-me"]
     type = "archive"
-    url = "https://github.com/mattpocock/skills/archive/refs/heads/main.tar.gz"
+    url = "https://github.com/mattpocock/skills/archive/e9dea692fd623e1717e63bdc81662c429a8e7062.tar.gz"
     stripComponents = 4
     refreshPeriod = "168h"
     include = ["*/skills/productivity/grill-me/**"]
 
 [".claude/skills/grilling"]
     type = "archive"
-    url = "https://github.com/mattpocock/skills/archive/refs/heads/main.tar.gz"
+    url = "https://github.com/mattpocock/skills/archive/e9dea692fd623e1717e63bdc81662c429a8e7062.tar.gz"
     stripComponents = 4
     refreshPeriod = "168h"
     include = ["*/skills/productivity/grilling/**"]
+
+[".claude/skills/handoff"]
+    type = "archive"
+    url = "https://github.com/mattpocock/skills/archive/e9dea692fd623e1717e63bdc81662c429a8e7062.tar.gz"
+    stripComponents = 4
+    refreshPeriod = "168h"
+    include = ["*/skills/productivity/handoff/**"]
+
+[".claude/skills/tdd"]
+    type = "archive"
+    url = "https://github.com/mattpocock/skills/archive/e9dea692fd623e1717e63bdc81662c429a8e7062.tar.gz"
+    stripComponents = 4
+    refreshPeriod = "168h"
+    include = ["*/skills/engineering/tdd/**"]
+
+[".claude/skills/improve-codebase-architecture"]
+    type = "archive"
+    url = "https://github.com/mattpocock/skills/archive/e9dea692fd623e1717e63bdc81662c429a8e7062.tar.gz"
+    stripComponents = 4
+    refreshPeriod = "168h"
+    include = ["*/skills/engineering/improve-codebase-architecture/**"]
+
+[".claude/skills/resolving-merge-conflicts"]
+    type = "archive"
+    url = "https://github.com/mattpocock/skills/archive/e9dea692fd623e1717e63bdc81662c429a8e7062.tar.gz"
+    stripComponents = 4
+    refreshPeriod = "168h"
+    include = ["*/skills/engineering/resolving-merge-conflicts/**"]
+
+[".claude/skills/domain-modeling"]
+    type = "archive"
+    url = "https://github.com/mattpocock/skills/archive/e9dea692fd623e1717e63bdc81662c429a8e7062.tar.gz"
+    stripComponents = 4
+    refreshPeriod = "168h"
+    include = ["*/skills/engineering/domain-modeling/**"]
+
+[".claude/skills/grill-with-docs"]
+    type = "archive"
+    url = "https://github.com/mattpocock/skills/archive/e9dea692fd623e1717e63bdc81662c429a8e7062.tar.gz"
+    stripComponents = 4
+    refreshPeriod = "168h"
+    include = ["*/skills/engineering/grill-with-docs/**"]
+
+[".claude/skills/codebase-design"]
+    type = "archive"
+    url = "https://github.com/mattpocock/skills/archive/e9dea692fd623e1717e63bdc81662c429a8e7062.tar.gz"
+    stripComponents = 4
+    refreshPeriod = "168h"
+    include = ["*/skills/engineering/codebase-design/**"]
 
 # Obsidian skills from kepano/obsidian-skills pinned to a known-good commit.
 # The archive layout is obsidian-skills-<sha>/skills/<name>/, so stripComponents=3
