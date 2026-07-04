@@ -16,7 +16,9 @@
     {
       "customType": "regex",
       "description": "Bump SHA-pinned GitHub source archives referenced in .chezmoiexternal.toml",
-      "fileMatch": ["^home/\\.chezmoiexternal\\.toml$"],
+      "managerFilePatterns": [
+        "/^home/\\.chezmoiexternal\\.toml$/"
+      ],
       "matchStrings": [
         "https://github\\.com/(?<depName>[^/]+/[^/]+)/archive/(?<currentDigest>[0-9a-f]{40})\\.tar\\.gz"
       ],
