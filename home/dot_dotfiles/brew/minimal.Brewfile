@@ -14,6 +14,7 @@ brew "age"
 brew "pv"
 brew "bat"
 brew "jq"
+brew "yq"
 brew "fd"
 brew "fzf"
 brew "svn"
@@ -44,6 +45,8 @@ brew "k9s"
 brew "krew"
 brew "argocd"
 brew "conftest"
+brew "helm"
+brew "pnpm"
 
 brew "tfenv"
 brew "talosctl"
@@ -57,12 +60,13 @@ cask "rectangle"
 cask "alfred"
 cask "launchos"
 cask "hiddenbar"
+cask "kindavim"
+cask "wooshy"
 
 cask "ghostty"
-cask "iterm2"
 
 cask "github"
-cask "claude-code"
+cask "claude-code@latest"
 
 cask "sublime-text"
 cask "obsidian"
@@ -77,6 +81,7 @@ cask "shottr"
 
 # Databases
 cask "tableplus"
+cask "beekeeper-studio"
 
 # Security
 cask "burp-suite"
