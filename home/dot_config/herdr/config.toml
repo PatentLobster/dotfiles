@@ -1,0 +1,26 @@
+# herdr configuration — tmux-style keybindings
+
+[keys]
+# Prefix key (tmux-style, this is also herdr's default)
+prefix = "ctrl+b"
+
+# tmux-style splits:
+#   prefix+" -> split top/bottom (like tmux split-window)
+#   prefix+% -> split left/right (like tmux split-window -h)
+split_horizontal = "prefix+\""
+split_vertical = "prefix+%"
+
+# Pane navigation (herdr defaults, kept explicit)
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+# Toggle pane full size (herdr default, kept explicit)
+zoom = "prefix+z"
+
+[ui]
+show_agent_labels_on_pane_borders = true
+
+[ui.toast]
+delivery = "off"

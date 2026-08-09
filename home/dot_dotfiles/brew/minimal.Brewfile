@@ -3,9 +3,13 @@
 # tap "homebrew/cask-fonts"
 # tap "homebrew/cask-versions"
 # tap "homebrew/bundle"
+tap "rjyo/moshi"
 
 # Base
 brew "tmux"
+brew "herdr"     # agent multiplexer (config in ~/.config/herdr)
+brew "mosh"      # provides mosh + mosh-server
+brew "moshi-hook", restart_service: :changed   # Moshi mobile bridge; secrets live in the keychain, not in dotfiles
 brew "bash"      # modern bash for tmux-agent-status (macOS ships 3.2)
 brew "python"    # for tmux-which-key YAML menu rebuilds (prebuilt menu works without it)
 brew "nvim"
