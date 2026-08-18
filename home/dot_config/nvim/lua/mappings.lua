@@ -20,10 +20,4 @@ map("n", "<leader>gb", function()
   vim.cmd("write")
   vim.cmd("terminal go build")
 end, { desc = "Go build package" })
-
-
--- Copilot
-map("i", "<C-l>", function()
-  require("copilot.suggestion").accept()
-end, { desc = "Copilot accept" })
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

@@ -12,9 +12,6 @@ return {
       require "configs.lspconfig"
     end,
   },
-
-  { "github/copilot.vim", lazy = false },
-
   {
     "coder/claudecode.nvim",
     dependencies = { "folke/snacks.nvim" },

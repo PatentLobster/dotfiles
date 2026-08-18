@@ -157,3 +157,14 @@
     stripComponents = 3
     refreshPeriod = "168h"
     include = ["*/skills/obsidian-markdown/**"]
+
+# diagram-design skill from cathrynlavery/diagram-design, pinned to a known-good commit.
+# Upstream is a Claude plugin repo; we pull only the skill subtree (SKILL.md + references/
+# + assets/), which is self-contained. Layout is diagram-design-<sha>/skills/diagram-design/,
+# so stripComponents=3 lands its contents at ~/.claude/skills/diagram-design/.
+[".claude/skills/diagram-design"]
+    type = "archive"
+    url = "https://github.com/cathrynlavery/diagram-design/archive/a157f7616473d966d6f433cf0b4d4f1880603504.tar.gz"
+    stripComponents = 3
+    refreshPeriod = "168h"
+    include = ["*/skills/diagram-design/**"]
