@@ -1,3 +1,4 @@
+onboarding = false
 # herdr configuration — tmux-style keybindings
 
 [keys]
@@ -19,8 +20,17 @@ focus_pane_right = "prefix+l"
 # Toggle pane full size (herdr default, kept explicit)
 zoom = "prefix+z"
 
+# "Copy mode": open the pane's scrollback in $EDITOR (nvim).
+# tmux equivalent of prefix+[ / copy-mode — use v to select, y to yank
+# (NvChad sets clipboard=unnamedplus, so y goes to the system clipboard).
+edit_scrollback = "prefix+e"
+
 [ui]
 show_agent_labels_on_pane_borders = true
 
 [ui.toast]
-delivery = "off"
+delivery = "herdr"
+
+[theme]
+name = "catppuccin"
+auto_switch = false
