@@ -3,13 +3,14 @@
 # tap "homebrew/cask-fonts"
 # tap "homebrew/cask-versions"
 # tap "homebrew/bundle"
-tap "rjyo/moshi"
+# `trusted: true` records the tap in ~/.homebrew/trust.json so bundle can load its formulae
+tap "rjyo/moshi", trusted: true
 
 # Base
 brew "tmux"
 brew "herdr"     # agent multiplexer (config in ~/.config/herdr)
 brew "mosh"      # provides mosh + mosh-server
-brew "moshi-hook", restart_service: :changed   # Moshi mobile bridge; secrets live in the keychain, not in dotfiles
+brew "rjyo/moshi/moshi-hook", restart_service: :changed   # Moshi mobile bridge; secrets live in the keychain, not in dotfiles
 brew "bash"      # modern bash for tmux-agent-status (macOS ships 3.2)
 brew "python"    # for tmux-which-key YAML menu rebuilds (prebuilt menu works without it)
 brew "nvim"
@@ -66,12 +67,17 @@ cask "launchos"
 cask "hiddenbar"
 cask "kindavim"
 cask "wooshy"
+cask "launchos"
 
 cask "ghostty"
 
 cask "github"
 cask "claude-code@latest"
+cask "codex"
+cask "tailscale-app"
 
+
+cask "fork"
 cask "sublime-text"
 cask "obsidian"
 
@@ -79,8 +85,8 @@ cask "spotify"
 
 # Media / misc
 cask "vlc"
+cask "eqmac"
 cask "transmit"
-# cask "gimp"
 cask "shottr"
 
 # Databases
